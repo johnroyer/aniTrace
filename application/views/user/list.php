@@ -11,18 +11,20 @@
    <table class="table">
       <tbody>
          <tr>
-            <td>Project Name</td>
-            <td>Progress</td>
+            <td>Animation Name</td>
+            <td>Vol</td>
             <td>Actions</td>
          <tr>
 
       <tr>
-         <td>Ubuntu-12.04-desktop-amd128.iso.torrent</td>
-         <td style="width: 200px;"> <div class="progress"> <div class="bar" style="width: 70%;"></div></div></td>
+         <td>CLANNAD</td>
+         <td style="width: 200px;"> 
+            <span style="margin-right: 20px;">4</span>
+            <a href="#"><i class="icon-plus"></i></a>
+            <a href="#"><i class="icon-minus"></i></a>
+         </td>
          <td style=""> 
-            <a class="action-link" href="#"><i class="action-icon icon-download-alt"></i>Download</a> 
-            <a class="action-link" href="#"><i class="action-icon icon-trash"></i>Delete</a>
-            <a class="action-link" href="#"><i class="action-icon icon-info-sign"></i>Detail</a>
+            <a class="action-link" href="#"><i class="action-icon icon-ok"></i>Finished !!!</a>
          </td>
       </tr>
       </tbody>
