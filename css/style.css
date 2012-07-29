@@ -24,10 +24,25 @@ body {
 }
 
 .action-link {
-   margin-right: 20px;
+   margin-left: 180px;
+   background-color: #eef;
 }
 
 .in-center {
    width: 50%;
    margin: 30px auto 0px auto;
 }
+
+
+/* Table Template */
+.row-template {
+   display: none;
+}
+
+.volume {
+   width: 70px;
+   text-align: center !important;
+   font-size: xx-large;
+   margin-right: 20px;
+}
+
