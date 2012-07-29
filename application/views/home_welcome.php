@@ -3,8 +3,8 @@
    $this->load->view('navbar');
 ?>
 
-   <h1>Qbtd</h1>
-   <p>BT download agent.</p>
+   <h1>aniTrace</h1>
+   <p>Helping to trace multiple animation in a time.</p>
 
 <?php
    $this->load->view('footer');

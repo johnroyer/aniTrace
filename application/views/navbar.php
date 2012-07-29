@@ -1,7 +1,7 @@
 <div class="navbar navbar-fixed-top">
    <div class="navbar-inner">
       <div class="container">
-      <a class="brand" href="<?php echo site_url(); ?>">Qbtd</a>
+      <a class="brand" href="<?php echo site_url(); ?>">aniTrace</a>
 
 <?php if( $loggedin == true ): ?>
             <ul class="nav pull-right" >
