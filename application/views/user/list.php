@@ -25,7 +25,7 @@ $this->load->helper('url');
             <td style=""> 
                <a href="#"><i class="action-icon icon-plus"></i></a>
                <a href="#"><i class="action-icon icon-minus"></i></a>
-               <a class="action-link" href="#"><i class="action-icon icon-ok"></i>看完了！</a>
+               <a class="action-link" href="#"><i class="action-icon icon-ok"></i>完結！</a>
             </td>
          </tr>
 
@@ -36,7 +36,7 @@ $this->load->helper('url');
             <td style=""> 
                <a href="#"><i class="action-icon icon-plus"></i></a>
                <a href="#"><i class="action-icon icon-minus"></i></a>
-               <a class="action-link" href="#"><i class="action-icon icon-ok"></i>看完了！</a>
+               <a class="action-link" href="#"><i class="action-icon icon-ok"></i>完結！</a>
             </td>
          </tr>
 
@@ -48,7 +48,7 @@ $this->load->helper('url');
             <td style=""> 
                <a href="#"><i class="action-icon icon-plus"></i></a>
                <a href="#"><i class="action-icon icon-minus"></i></a>
-               <a class="action-link" href="#"><i class="action-icon icon-ok"></i>看完了！</a>
+               <a class="action-link" href="#"><i class="action-icon icon-ok"></i>完結！</a>
             </td>
          </tr>
       </tbody>
