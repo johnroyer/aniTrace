@@ -41,6 +41,31 @@ INSERT INTO `groups` VALUES (1,'admin','Administrator'),(2,'members','General Us
 UNLOCK TABLES;
 
 --
+-- Table structure for table `list`
+--
+
+DROP TABLE IF EXISTS `list`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `list` (
+  `sn` int(12) NOT NULL,
+  `user_id` int(12) NOT NULL,
+  `name` varchar(200) NOT NULL,
+  `sub` varchar(200) NOT NULL,
+  `vol` int(12) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `list`
+--
+
+LOCK TABLES `list` WRITE;
+/*!40000 ALTER TABLE `list` DISABLE KEYS */;
+/*!40000 ALTER TABLE `list` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `login_attempts`
 --
 
@@ -138,4 +163,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2012-07-29  2:47:56
+-- Dump completed on 2012-07-29 13:08:16
