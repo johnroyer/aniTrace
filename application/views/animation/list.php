@@ -4,7 +4,7 @@ $this->load->view('navbar');
 $this->load->helper('url');  
 ?>
 
-   <h2>Hello, <?php echo $user['id']; ?></h2>
+   <h2>Hello, <?php echo $user['username']; ?></h2>
 
    <p style="margin-top: 25px;"></p>
 
@@ -17,7 +17,7 @@ $this->load->helper('url');
             <td></td>
          </tr>
 
-         <tr id="list-template">
+         <tr class="row-template">
             <td></td>
             <td></td>
             <td class="volume"></td>
@@ -28,6 +28,7 @@ $this->load->helper('url');
                <a class="action-link" href="#"><i class="action-icon icon-ok"></i>完結！</a>
             </td>
          </tr>
+
       </tbody>
    </table>
 

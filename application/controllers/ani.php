@@ -15,13 +15,15 @@ class ani extends CI_Controller
       }else{
          redirect('');
       }
+      $this->load->model('animation');
+      $this->animation->setUid( $this->user['id'] );
    }
 
    public function index()
    {
       $data['user'] = $this->user;
       $data['loggedin'] = true;
-      $this->load->view('ani/list', $data);
+      $this->load->view('animation/list', $data);
    }
 
    private function _getUserInfo($id=NULL)
@@ -37,8 +39,8 @@ class ani extends CI_Controller
             $isAdmin = true;
       }
       $user =  array(
-         'sn' => $info->id ,
-         'id' => $info->username,
+         'id' => $info->id ,
+         'username' => $info->username,
          'email' => $info->email,
          'groups' => $list,
          'isAdmin' => $isAdmin
