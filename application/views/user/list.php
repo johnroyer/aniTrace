@@ -17,33 +17,10 @@ $this->load->helper('url');
             <td></td>
          </tr>
 
-         <tr>
-            <td>宇宙超級無敵媒人能比的非常多字的動畫名稱</td>
-            <td>liuming</td>
-            <td class="volume">8</td>
-            </td>
-            <td style=""> 
-               <a href="#"><i class="action-icon icon-plus"></i></a>
-               <a href="#"><i class="action-icon icon-minus"></i></a>
-               <a class="action-link" href="#"><i class="action-icon icon-ok"></i>完結！</a>
-            </td>
-         </tr>
-
-         <tr>
-            <td>CLANNAD</td>
-            <td>DHR</td>
-            <td class="volume">18</td>
-            <td style=""> 
-               <a href="#"><i class="action-icon icon-plus"></i></a>
-               <a href="#"><i class="action-icon icon-minus"></i></a>
-               <a class="action-link" href="#"><i class="action-icon icon-ok"></i>完結！</a>
-            </td>
-         </tr>
-
-         <tr>
-            <td>海賊王</td>
-            <td>N/A</td>
-            <td class="volume">511</td>
+         <tr id="list-template">
+            <td></td>
+            <td></td>
+            <td class="volume"></td>
             </td>
             <td style=""> 
                <a href="#"><i class="action-icon icon-plus"></i></a>

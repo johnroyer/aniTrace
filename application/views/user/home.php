@@ -7,14 +7,20 @@
    <div class="span6">
       <h2>Login</h2>
       <form class="well" action="<?php echo site_url('user/login/'); ?>" method="post" accept-charset="utf-8">
-         <label>Username: </label>
-         <input class="span3 " type="text" name="username" placeholder="longin id" autofocus>
+         <label for="username">Username: </label>
+         <input class="span3 " id="username" type="text" name="username" placeholder="longin id" autofocus>
          
-         <label>Password: </label>
-         <input class="span3" type="password" name="password" placeholder="your password">
+         <label for="password">Password: </label>
+         <input class="span3" id="password" type="password" name="password" placeholder="your password">
+
+         <label class="checkbox">
+            <input type="checkbox" name="remember" value="yes"> Remember Me
+         </label>
+
+         <br />
 
          <p><button class="btn" type="submit">Login</button>
-         <a href="">Forget Password ?</a></p>
+         <a href="" id="forget-password">Forget Password ?</a></p>
       </form>
    </div>
 

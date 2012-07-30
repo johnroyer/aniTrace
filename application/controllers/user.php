@@ -34,8 +34,12 @@ class User extends CI_Controller {
 
       $username = $this->input->post('username');
       $password = $this->input->post('password');
+      $remember = false;
+      if( $this->input->post('remember') == 'yes'){
+         $remember = true;
+      }
 
-      if( $this->ion_auth->login($username, $password) == true ){
+      if( $this->ion_auth->login($username, $password, $remember) == true ){
          // Login success
          $data = array(
             'page_title' => 'Project List',

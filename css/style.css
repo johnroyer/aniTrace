@@ -1,5 +1,7 @@
 body {
    padding-top: 60px; 
+   font-family: 'Verdana', sans-serif;
+   font-size: medium;
 }
 
 .navbar .brand {
@@ -25,12 +27,16 @@ body {
 
 .action-link {
    margin-left: 180px;
-   background-color: #eef;
 }
 
 .in-center {
    width: 50%;
    margin: 30px auto 0px auto;
+}
+
+#forget-password {
+   margin-left: 20px;
+   font-size: small;
 }
 
 
