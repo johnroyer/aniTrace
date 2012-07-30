@@ -48,7 +48,7 @@ DROP TABLE IF EXISTS `list`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `list` (
-  `sn` int(12) NOT NULL,
+  `sn` int(12) NOT NULL AUTO_INCREMENT,
   `user_id` int(12) NOT NULL,
   `name` varchar(200) NOT NULL,
   `sub` varchar(200) NOT NULL,
