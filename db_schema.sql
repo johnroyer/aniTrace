@@ -51,7 +51,7 @@ CREATE TABLE `list` (
   `sn` int(12) NOT NULL AUTO_INCREMENT,
   `user_id` int(12) NOT NULL,
   `name` varchar(200) NOT NULL,
-  `sub` varchar(200) NOT NULL,
+  `sub` varchar(200) DEFAULT NULL,
   `vol` int(12) NOT NULL,
   PRIMARY KEY (`sn`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
