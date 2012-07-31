@@ -31,7 +31,13 @@
             </td>
          </tr>
 
-         <?php foreach( $list as $row ): ?>
+         <?php 
+
+         if( count( $list ) > 0 ):
+         
+            foreach( $list as $row ):
+
+         ?>
 
          <tr class="">
             <td><?php echo $row['name']; ?></td>
@@ -44,7 +50,18 @@
             </td>
          </tr>
       
-         <?php endforeach; ?>
+         <?php 
+               endforeach;
+
+            else:
+         ?>
+
+         <tr>
+            <td colspan="4" style="text-align: center;">尚無資料</td>
+         </tr>
+
+         <?php  endif;  ?>
+
 
       </tbody>
    </table>

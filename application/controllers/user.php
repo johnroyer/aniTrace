@@ -29,7 +29,7 @@ class User extends CI_Controller {
    {
       // Check if user has loggedin
       if( $this->ion_auth->logged_in() == true ){
-         redirect('user/');
+         redirect('ani/');
       }
 
       $username = $this->input->post('username');
@@ -45,7 +45,7 @@ class User extends CI_Controller {
             'page_title' => 'Project List',
             'loggedin' => true
          );
-         redirect('user/');
+         redirect('ani/');
       }else{
          // Login Failed
          $data['page_title'] = 'Login';
@@ -72,7 +72,7 @@ class User extends CI_Controller {
    {
       // Check if user has loggedin
       if( $this->ion_auth->logged_in() == true ){
-         redirect('user/');
+         redirect('ani/');
       }
 
       $username = $this->input->post('username');

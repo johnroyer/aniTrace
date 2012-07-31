@@ -10,7 +10,6 @@
                <li><a href="<?php echo site_url('admin/'); ?>">User Management</a></li>
             <?php endif; ?>
 
-               <li><a href="#">Upload Torrent</a></li>
                <li class="dropdown">
                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   <i class="icon-user icon-white"></i>
