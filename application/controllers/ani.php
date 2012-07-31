@@ -45,6 +45,27 @@ class Ani extends CI_Controller
       }
    }
 
+   public function up($id = 0)
+   {
+      if( intval( $id ) != 0 ){
+         $this->animation->setVol($id, $this->animation->getVol($id) + 1 );
+      }
+      redirect('ani/');
+   }
+
+   public function down($id = 0)
+   {
+      if( intval( $id ) != 0 ){
+         $vol = $this->animation->getVol($id);
+         if( $vol > 1 )
+            $vol -= 1;
+         else
+            $vol = 1;
+         $this->animation->setVol($id, $vol);
+      }
+      redirect('ani/');
+   }
+
    private function _getUserInfo($id=NULL)
    {
       $info = $this->ion_auth->user($id)->row();

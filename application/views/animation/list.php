@@ -44,8 +44,8 @@
             <td><?php echo $row['sub']; ?></td>
             <td class="volume"><?php echo $row['vol']; ?></td>
             <td style=""> 
-               <a href="#"><i class="action-icon icon-plus"></i></a>
-               <a href="#"><i class="action-icon icon-minus"></i></a>
+               <a href="<?php echo site_url('ani/up/'.$row['sn']); ?>"><i class="action-icon icon-plus"></i></a>
+               <a href="<?php echo site_url('ani/down/'.$row['sn']); ?>"><i class="action-icon icon-minus"></i></a>
                <a class="action-link" href="#"><i class="action-icon icon-ok"></i>完結！</a>
             </td>
          </tr>

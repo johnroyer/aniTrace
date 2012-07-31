@@ -40,22 +40,29 @@ class Animation extends CI_Model
 
    public function getVol($aniId)
    {
+      $this->db->where( array(
+         'sn' => $aniId
+      ) );
+      $result = $this->db->get('list')->result_array();
+      return $result[0]['vol'];
    }
 
    public function setAni($aniId, $name, $sub, $vol)
    {
    }
 
-   public function setName($name)
+   public function setName($aniId, $name)
    {
    }
 
-   public function setSub($sub)
+   public function setSub($aniId, $sub)
    {
    }
 
-   public function setVol($vol)
+   public function setVol($aniId, $vol)
    {
+      $this->db->where('sn', $aniId);
+      return $this->db->update('list', array('vol' => $vol) );
    }
 
    public function newAni($name, $sub, $vol)
@@ -67,5 +74,9 @@ class Animation extends CI_Model
          'vol' => $vol
       );
       $this->db->insert('list', $data);
+   }
+
+   public function deleteAni($aniId)
+   {
    }
 }
