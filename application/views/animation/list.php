@@ -1,12 +1,14 @@
 <?php
-$this->load->view('header');  
-$this->load->view('navbar'); 
-$this->load->helper('url');  
+   $this->load->view('header');  
+   $this->load->view('navbar'); 
+   $this->load->helper('url');  
 ?>
 
    <h2>Hello, <?php echo $user['username']; ?></h2>
 
-   <p style="margin-top: 25px;"></p>
+   <p id="list-control">
+      <i class="icon-plus-sign"></i><a href="<?php echo site_url('ani/addAni'); ?>">Add</a>
+   </p>
 
    <table class="table">
       <tbody>

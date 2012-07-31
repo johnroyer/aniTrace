@@ -60,5 +60,12 @@ class Animation extends CI_Model
 
    public function newAni($name, $sub, $vol)
    {
+      $data = array(
+         'user_id' => $this->uid,
+         'name' => $name,
+         'sub' => $sub,
+         'vol' => $vol
+      );
+      $this->db->insert('list', $data);
    }
 }
