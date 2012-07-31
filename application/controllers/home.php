@@ -12,7 +12,7 @@ class Home extends CI_Controller {
 	{
       // Check if user logged_in
       if( $this->ion_auth->logged_in() == true ){
-         redirect('user/');
+         redirect('ani/');
       }
 
       $data = array(
