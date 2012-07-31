@@ -29,6 +29,21 @@ $this->load->helper('url');
             </td>
          </tr>
 
+         <?php foreach( $list as $row ): ?>
+
+         <tr class="">
+            <td><?php echo $row['name']; ?></td>
+            <td><?php echo $row['sub']; ?></td>
+            <td class="volume"><?php echo $row['vol']; ?></td>
+            <td style=""> 
+               <a href="#"><i class="action-icon icon-plus"></i></a>
+               <a href="#"><i class="action-icon icon-minus"></i></a>
+               <a class="action-link" href="#"><i class="action-icon icon-ok"></i>完結！</a>
+            </td>
+         </tr>
+      
+         <?php endforeach; ?>
+
       </tbody>
    </table>
 

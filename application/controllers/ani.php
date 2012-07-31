@@ -1,6 +1,6 @@
 <?php
 
-class ani extends CI_Controller
+class Ani extends CI_Controller
 {
    
    private $user;
@@ -23,6 +23,7 @@ class ani extends CI_Controller
    {
       $data['user'] = $this->user;
       $data['loggedin'] = true;
+      $data['list'] = $this->animation->getList();
       $this->load->view('animation/list', $data);
    }
 

@@ -21,6 +21,9 @@ class Animation extends CI_Model
 
    public function getList()
    {
+      $this->db->order_by('sn', 'asc');
+      $this->db->where('user_id', $this->uid);
+      return $this->db->get('list')->result_array();
    }
 
    public function getAni($aniId)
