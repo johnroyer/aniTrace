@@ -10,7 +10,7 @@ $('#password2').blur( function(){
 });
 
 
-$('#username').blur( function(){
+$('.register #username').blur( function(){
    var username = $('#username').attr('value');
    if( username == '' ){
       checkStatReset('#username-group');
@@ -49,7 +49,7 @@ function usernameCheck( found ){
    }
 }
 
-$('#email').blur( function(){
+$('.register #email').blur( function(){
    var email = $('#email').attr('value');
    if( email == '' ){
       checkStatReset('#email-group');
