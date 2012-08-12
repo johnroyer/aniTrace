@@ -78,5 +78,9 @@ class Animation extends CI_Model
 
    public function deleteAni($aniId)
    {
+      $data = array(
+         'sn' => $aniId
+      );
+      $this->db->delete('list', $data);
    }
 }
