@@ -79,10 +79,10 @@ class Ani extends CI_Controller
    {
       if( intval( $id ) != 0 ){
          $vol = $this->animation->getVol($id);
-         if( $vol > 1 )
+         if( $vol > 0 )
             $vol -= 1;
          else
-            $vol = 1;
+            $vol = 0;
          $this->animation->setVol($id, $vol);
       }
       redirect('ani/');
@@ -100,10 +100,10 @@ class Ani extends CI_Controller
    {
       if( intval( $id ) != 0 ){
          $vol = $this->animation->getBuy($id);
-         if( $vol > 1 )
+         if( $vol > 0 )
             $vol -= 1;
          else
-            $vol = 1;
+            $vol = 0;
          $this->animation->setBuy($id, $vol);
       }
       redirect('ani/');
