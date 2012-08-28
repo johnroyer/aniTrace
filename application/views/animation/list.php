@@ -16,17 +16,22 @@
             <td>動畫</td>
             <td>字幕組</td>
             <td>集數</td>
+            <td>購入集數</td>
             <td></td>
          </tr>
 
          <tr class="row-template">
             <td></td>
             <td></td>
-            <td class="volume"></td>
-            </td>
-            <td style=""> 
+            <td class="volume">
                <a href="#"><i class="action-icon icon-plus"></i></a>
                <a href="#"><i class="action-icon icon-minus"></i></a>
+            </td>
+            <td class="buy">
+               <a href="#"><i class="action-icon icon-plus"></i></a>
+               <a href="#"><i class="action-icon icon-minus"></i></a>
+            </td>
+            <td style=""> 
                <a class="action-link" href="#"><i class="action-icon icon-ok"></i>完結！</a>
             </td>
          </tr>
@@ -42,10 +47,15 @@
          <tr class="">
             <td><?php echo $row['name']; ?></td>
             <td><?php echo $row['sub']; ?></td>
-            <td class="volume"><?php echo $row['vol']; ?></td>
+            <td class="volume"><?php echo $row['vol']; ?>
+               <a href="<?php echo site_url('ani/vol/up/'.$row['sn']); ?>"><i class="action-icon icon-plus"></i></a>
+               <a href="<?php echo site_url('ani/vol/down/'.$row['sn']); ?>"><i class="action-icon icon-minus"></i></a>
+            </td>
+            <td class="buy"><?php echo $row['buy']; ?>
+               <a href="<?php echo site_url('ani/buy/up/'.$row['sn']); ?>"><i class="action-icon icon-plus"></i></a>
+               <a href="<?php echo site_url('ani/buy/down/'.$row['sn']); ?>"><i class="action-icon icon-minus"></i></a>
+            </td>
             <td style=""> 
-               <a href="<?php echo site_url('ani/up/'.$row['sn']); ?>"><i class="action-icon icon-plus"></i></a>
-               <a href="<?php echo site_url('ani/down/'.$row['sn']); ?>"><i class="action-icon icon-minus"></i></a>
                <a class="action-link" href="#"><i class="action-icon icon-ok"></i>完結！</a>
             </td>
          </tr>

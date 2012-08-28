@@ -45,7 +45,18 @@ class Ani extends CI_Controller
       }
    }
 
-   public function up($id = 0)
+   public function vol($act, $id=0)
+   {
+      if( intval( $id ) != 0 ){
+         if( $act == 'up' ){
+            $this->_volUp($id);
+         }else{
+            $this->_volDown($id);
+         }
+      }
+   }
+
+   private function _volUp($id = 0)
    {
       if( intval( $id ) != 0 ){
          $this->animation->setVol($id, $this->animation->getVol($id) + 1 );
@@ -53,7 +64,7 @@ class Ani extends CI_Controller
       redirect('ani/');
    }
 
-   public function down($id = 0)
+   private function _volDown($id = 0)
    {
       if( intval( $id ) != 0 ){
          $vol = $this->animation->getVol($id);
