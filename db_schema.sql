@@ -53,6 +53,7 @@ CREATE TABLE `list` (
   `name` varchar(200) NOT NULL,
   `sub` varchar(200) DEFAULT NULL,
   `vol` int(12) NOT NULL,
+  `buy` int(12) NOT NULL,
   PRIMARY KEY (`sn`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
