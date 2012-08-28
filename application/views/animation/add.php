@@ -21,13 +21,6 @@
          </div>
       </div>
 
-      <div class="control-group">
-         <label class="control-label" for="vol">集數</label>
-         <div class="controls">
-            <input type="text" name="vol" value="">
-         </div>
-      </div>
-
       <div class="form-actions">
          <button class="btn btn-primary" type="submit">新增</button>
          <a class="btn" href="<?php echo site_url('ani/addAni'); ?>">取消</a>

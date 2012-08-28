@@ -80,13 +80,13 @@ class Animation extends CI_Model
       return $this->db->update('list', array('buy' => $vol) );
    }
 
-   public function newAni($name, $sub, $vol)
+   public function newAni($name, $sub)
    {
       $data = array(
          'user_id' => $this->uid,
          'name' => $name,
          'sub' => $sub,
-         'vol' => $vol,
+         'vol' => 0,
          'buy' => 0
       );
       $this->db->insert('list', $data);

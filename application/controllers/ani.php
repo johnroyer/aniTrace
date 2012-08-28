@@ -32,10 +32,7 @@ class Ani extends CI_Controller
       if( $this->input->post('name') != false ){
          $name = $this->input->post('name');
          $sub = $this->input->post('sub');
-         $vol = intval( $this->input->post('vol') );
-         if( $vol < 1 )
-            $vol = 1;
-         $this->animation->newAni($name, $sub, $vol);
+         $this->animation->newAni($name, $sub);
          redirect('ani/');
       }else{
          // show form
