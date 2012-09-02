@@ -31,7 +31,6 @@ function renewTable( list ){
       $('#user-list > tbody > tr:last').after( $('#row-template').clone().removeAttr('id') );
       var $currRow = $('tr:last');
       for( elem in list[index] ){
-         // $('tr:last > td.row-' + elem ).text( data[elem] );
          $currRow.find('> td.row-' + elem ).text( list[index][elem] );
       }
       var $link = $currRow.find(' > td > a.deleteUser');
