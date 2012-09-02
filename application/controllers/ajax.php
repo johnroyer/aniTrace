@@ -20,10 +20,7 @@ class Ajax extends CI_Controller
 
    public function index()
    {
-      $data = array(
-         'msg' => 'Hello World'
-      );
-      echo json_encode($data);
+      echo json_encode( $this->animation->getList() );
    }
 
    public function vol($act, $id=0)
