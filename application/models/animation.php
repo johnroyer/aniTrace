@@ -41,7 +41,8 @@ class Animation extends CI_Model
    public function getVol($aniId)
    {
       $this->db->where( array(
-         'sn' => $aniId
+         'sn' => $aniId,
+         'user_id' => $this->uid
       ) );
       $result = $this->db->get('list')->result_array();
       return $result[0]['vol'];
@@ -50,7 +51,8 @@ class Animation extends CI_Model
    public function getBuy($aniId)
    {
       $this->db->where( array(
-         'sn' => $aniId
+         'sn' => $aniId,
+         'user_id' => $this->uid
       ) );
       $result = $this->db->get('list')->result_array();
       return $result[0]['buy'];
@@ -71,12 +73,14 @@ class Animation extends CI_Model
    public function setVol($aniId, $vol)
    {
       $this->db->where('sn', $aniId);
+      $this->db->where('user_id', $this->uid);
       return $this->db->update('list', array('vol' => $vol) );
    }
 
    public function setBuy($aniId, $vol)
    {
       $this->db->where('sn', $aniId);
+      $this->db->where('user_id', $this->uid);
       return $this->db->update('list', array('buy' => $vol) );
    }
 
@@ -97,6 +101,7 @@ class Animation extends CI_Model
       $data = array(
          'sn' => $aniId
       );
+      $this->db->where('user_id', $this->uid);
       $this->db->delete('list', $data);
    }
 }
