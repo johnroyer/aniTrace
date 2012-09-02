@@ -39,6 +39,19 @@ class Ajax extends CI_Controller
       }
    }
 
+   public function buy($act, $id=0)
+   {
+      if( intval( $id ) != 0 ){
+         if( $act == 'up' ){
+            $this->animation->buyUp($id);
+            echo json_encode( $this->animation->getRow($id) );
+         }else{
+            $this->animation->buyDown($id);
+            echo json_encode( $this->animation->getRow($id) );
+         }
+      }
+   }
+
    private function _getUserInfo($id=NULL)
    {
       $info = $this->ion_auth->user($id)->row();
