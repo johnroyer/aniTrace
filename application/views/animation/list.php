@@ -24,54 +24,17 @@
             <td></td>
             <td></td>
             <td class="volume">
-               <a href="#"><i class="action-icon icon-plus"></i></a>
-               <a href="#"><i class="action-icon icon-minus"></i></a>
+               <i class="action-icon icon-plus"></i>
+               <i class="action-icon icon-minus"></i>
             </td>
             <td class="buy">
-               <a href="#"><i class="action-icon icon-plus"></i></a>
-               <a href="#"><i class="action-icon icon-minus"></i></a>
+               <i class="action-icon icon-plus"></i>
+               <i class="action-icon icon-minus"></i>
             </td>
             <td style=""> 
-               <a class="action-link" href="#"><i class="action-icon icon-ok"></i>完結！</a>
+               <i class="action-icon icon-ok"></i>完結！
             </td>
          </tr>
-
-         <?php 
-
-         if( count( $list ) > 0 ):
-         
-            foreach( $list as $row ):
-
-         ?>
-
-         <tr class="">
-            <td><?php echo $row['name']; ?></td>
-            <td><?php echo $row['sub']; ?></td>
-            <td class="volume"><?php echo $row['vol']; ?>
-               <a href="<?php echo site_url('ani/vol/up/'.$row['sn']); ?>"><i class="action-icon icon-plus"></i></a>
-               <a href="<?php echo site_url('ani/vol/down/'.$row['sn']); ?>"><i class="action-icon icon-minus"></i></a>
-            </td>
-            <td class="buy"><?php echo $row['buy']; ?>
-               <a href="<?php echo site_url('ani/buy/up/'.$row['sn']); ?>"><i class="action-icon icon-plus"></i></a>
-               <a href="<?php echo site_url('ani/buy/down/'.$row['sn']); ?>"><i class="action-icon icon-minus"></i></a>
-            </td>
-            <td style=""> 
-               <a class="action-link" href="#"><i class="action-icon icon-ok"></i>完結！</a>
-            </td>
-         </tr>
-      
-         <?php 
-               endforeach;
-
-            else:
-         ?>
-
-         <tr>
-            <td colspan="4" style="text-align: center;">尚無資料</td>
-         </tr>
-
-         <?php  endif;  ?>
-
 
       </tbody>
    </table>
