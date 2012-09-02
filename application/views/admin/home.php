@@ -31,6 +31,15 @@
          </thead>
 
          <tbody>
+            <tr id="row-template">
+               <td class="row-id"></td>
+               <td class="row-username"></td>
+               <td class="row-email"></td>
+               <td class="row-action">
+                  <a href="<?php echo site_url('admin/deleteUser/'); ?>" class="action-link deleteUser"><i class="icon-trash action-icon"></i>Delete</a>
+                  <a href="<?php echo site_url('admin/edit/'); ?>" class="action-link editUser"><i class="icon-pencil action-icon"></i>Edit</a>
+               </td>
+            </tr>
 
             <?php foreach($users as $u): ?>
                <tr>

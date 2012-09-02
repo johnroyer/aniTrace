@@ -21,6 +21,10 @@ body {
    margin-right: 6px;
 }
 
+#row-template {
+   display: none;
+}
+
 .action-icon {
    margin-right: 5px;
 }

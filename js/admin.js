@@ -11,7 +11,7 @@ $('#username-key').keyup(  function(){
 });
 
 function clearTable(){
-   $('#user-list > tbody > tr').remove();
+   $('#user-list > tbody > tr:not(#row-template)').remove();
 }
 
 function fetchUser( keyword ){
@@ -33,16 +33,14 @@ function renewTable( list ){
 }
 
 function addRow( data ){
-   $('#user-list > tbody ').append(
-         '<tr> ' + 
-            '<td>' + data.id + '</td>' +
-            '<td>' + data.username + '</td>' +
-            '<td>' + data.email + '</td>' +
-            '<td>' +
-               '<a href="' + site_url + '/admin/deleteUser/' + data.id + '" class="action-link">' +
-               '<i class="icon-trash action-icon"></i> Delete </a>' +
-               '<a href="#" class="action-link"><i class="icon-pencil action-icon"></i>Edit</a>' +
-            '</td>' +
-         '</tr>'
-      );
+   $('#user-list > tbody > tr:last').after( $('#row-template').clone().removeAttr('id') );
+   var $currRow = $('tr:last');
+   for( elem in data ){
+     // $('tr:last > td.row-' + elem ).text( data[elem] );
+     $currRow.find('> td.row-' + elem ).text( data[elem] );
+   }
+   var $link = $currRow.find(' > td > a.deleteUser');
+   $link.attr('href', $link.attr('href') + '/' + data.id );
+   var $link = $currRow.find(' > td > a.editUser');
+   $link.attr('href', $link.attr('href') + '/' + data.id );
 }
