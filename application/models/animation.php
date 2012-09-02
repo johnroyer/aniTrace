@@ -77,6 +77,22 @@ class Animation extends CI_Model
       return $this->db->update('list', array('vol' => $vol) );
    }
 
+   public function volDown($aniId)
+   {
+      $vol = $this->getVol($aniId);
+      if( $vol > 0 ){
+         $vol -= 1;
+      }else{
+         $vol = 0;
+      }
+      $this->setVol($aniId, $vol);
+   }
+
+   public function volUp($aniId)
+   {
+      $this->setVol($aniId, $this->getVol($aniId) + 1 );
+   }
+
    public function setBuy($aniId, $vol)
    {
       $this->db->where('sn', $aniId);

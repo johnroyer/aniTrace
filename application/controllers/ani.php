@@ -57,32 +57,13 @@ class Ani extends CI_Controller
    {
       if( intval( $id ) != 0 ){
          if( $act == 'up' ){
-            $this->_volUp($id);
+            $this->animation->volUp($id);
+            redirect('ani/');
          }else{
-            $this->_volDown($id);
+            $this->animation->volDown($id);
+            redirect('ani/');
          }
       }
-   }
-
-   private function _volUp($id = 0)
-   {
-      if( intval( $id ) != 0 ){
-         $this->animation->setVol($id, $this->animation->getVol($id) + 1 );
-      }
-      redirect('ani/');
-   }
-
-   private function _volDown($id = 0)
-   {
-      if( intval( $id ) != 0 ){
-         $vol = $this->animation->getVol($id);
-         if( $vol > 0 )
-            $vol -= 1;
-         else
-            $vol = 0;
-         $this->animation->setVol($id, $vol);
-      }
-      redirect('ani/');
    }
 
    private function _buyUp($id = 0)
