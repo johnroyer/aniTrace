@@ -28,19 +28,15 @@ function fetchUser( keyword ){
 function renewTable( list ){
    clearTable();
    for( index in list ){
-      addRow( list[index] );
+      $('#user-list > tbody > tr:last').after( $('#row-template').clone().removeAttr('id') );
+      var $currRow = $('tr:last');
+      for( elem in list[index] ){
+         // $('tr:last > td.row-' + elem ).text( data[elem] );
+         $currRow.find('> td.row-' + elem ).text( list[index][elem] );
+      }
+      var $link = $currRow.find(' > td > a.deleteUser');
+      $link.attr('href', $link.attr('href') + '/' + list[index]['id'] );
+      var $link = $currRow.find(' > td > a.editUser');
+      $link.attr('href', $link.attr('href') + '/' + list[index]['id'] );
    }
-}
-
-function addRow( data ){
-   $('#user-list > tbody > tr:last').after( $('#row-template').clone().removeAttr('id') );
-   var $currRow = $('tr:last');
-   for( elem in data ){
-     // $('tr:last > td.row-' + elem ).text( data[elem] );
-     $currRow.find('> td.row-' + elem ).text( data[elem] );
-   }
-   var $link = $currRow.find(' > td > a.deleteUser');
-   $link.attr('href', $link.attr('href') + '/' + data.id );
-   var $link = $currRow.find(' > td > a.editUser');
-   $link.attr('href', $link.attr('href') + '/' + data.id );
 }
