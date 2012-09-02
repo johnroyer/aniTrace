@@ -27,21 +27,6 @@ class Ani extends CI_Controller
       $this->load->view('animation/list', $data);
    }
 
-   public function addAni()
-   {
-      if( $this->input->post('name') != false ){
-         $name = $this->input->post('name');
-         $sub = $this->input->post('sub');
-         $this->animation->newAni($name, $sub);
-         redirect('ani/');
-      }else{
-         // show form
-         $data['loggedin'] = true;
-         $data['user'] = $this->user;
-         $this->load->view('animation/add', $data);
-      }
-   }
-
    public function buy($act, $id=0)
    {
       if( intval( $id ) != 0 ){
