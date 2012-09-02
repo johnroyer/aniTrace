@@ -46,9 +46,11 @@ class Ani extends CI_Controller
    {
       if( intval( $id ) != 0 ){
          if( $act == 'up' ){
-            $this->_buyUp($id);
+            $this->animation->buyUp($id);
+            redirect('ani/');
          }else{
-            $this->_buyDown($id);
+            $this->animation->buyDown($id);
+            redirect('ani/');
          }
       }
    }
@@ -64,27 +66,6 @@ class Ani extends CI_Controller
             redirect('ani/');
          }
       }
-   }
-
-   private function _buyUp($id = 0)
-   {
-      if( intval( $id ) != 0 ){
-         $this->animation->setBuy($id, $this->animation->getBuy($id) + 1 );
-      }
-      redirect('ani/');
-   }
-
-   private function _buyDown($id = 0)
-   {
-      if( intval( $id ) != 0 ){
-         $vol = $this->animation->getBuy($id);
-         if( $vol > 0 )
-            $vol -= 1;
-         else
-            $vol = 0;
-         $this->animation->setBuy($id, $vol);
-      }
-      redirect('ani/');
    }
 
    private function _getUserInfo($id=NULL)

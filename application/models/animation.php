@@ -100,6 +100,22 @@ class Animation extends CI_Model
       return $this->db->update('list', array('buy' => $vol) );
    }
 
+   public function buyDown($aniId)
+   {
+      $buy = $this->getBuy($aniId);
+      if( $buy > 0 ){
+         $buy -= 1;
+      }else{
+         $buy = 0;
+      }
+      $this->setBuy($aniId, $buy);
+   }
+
+   public function buyUp($aniId)
+   {
+      $this->setBuy($aniId, $this->getBuy($aniId) + 1 );
+   }
+
    public function newAni($name, $sub)
    {
       $data = array(
