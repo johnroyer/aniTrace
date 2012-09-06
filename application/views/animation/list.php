@@ -22,10 +22,10 @@
       </thead>
 
       <tbody>
-         <tr class="row-template">
+         <tr id="row-template">
             <td class="col-name"></td>
             <td class="col-sub"></td>
-            <td class="col-volume">
+            <td class="col-vol">
                <i class="action-icon icon-plus"></i>
                <i class="action-icon icon-minus"></i>
             </td>
