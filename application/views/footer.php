@@ -6,6 +6,7 @@
 
 <script src="<?php echo base_url(); ?>/js/jquery-1.8.0.min.js"></script>
 <script src="<?php echo base_url(); ?>/js/jquery.validate.min.js"></script>
+<script src="<?php echo base_url(); ?>/js/jquery.tmpl.min.js"></script>
 <script src="<?php echo base_url(); ?>/js/bootstrap.min.js"></script>
 
 <script src="<?php echo base_url(); ?>/js/admin.js"></script>
