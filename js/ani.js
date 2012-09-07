@@ -19,15 +19,15 @@ function getAniList ( ) {
 
 function renewList( response ){
    clearTable();
-   if( response === undefined )
-      console.log('response is empty');
+   if( response.length > 0  ){
       for( aniId in response ){
-         $('#ani-list > tbody > tr:last').after( $('#row-template').clone().removeAttr('id') );
-         var $currRow = $('tr:last');
-         for( elem in response[aniId] ){
-            $currRow.find('> td.col-' + elem ).text( response[aniId][elem] );
-         }
+         var tmpl = $('#row-template').clone().removeAttr('id');
+         $('<tr></tr>').insertAfter('#ani-list > tbody > tr:last');
+         var result = $.tmpl( tmpl, response[aniId] )
+            .appendTo('#ani-list > tbody > tr:last');
       }
+   }else{
+   }
 }
 
 function clearTable(){

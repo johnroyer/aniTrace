@@ -23,17 +23,19 @@
 
       <tbody>
          <tr id="row-template">
-            <td class="col-name"></td>
-            <td class="col-sub"></td>
+            <td class="col-name">${name}</td>
+            <td class="col-sub">${sub}</td>
             <td class="col-vol">
+               ${vol} 
                <i class="action-icon icon-plus"></i>
                <i class="action-icon icon-minus"></i>
             </td>
             <td class="col-buy">
+               ${buy}
                <i class="action-icon icon-plus"></i>
                <i class="action-icon icon-minus"></i>
             </td>
-            <td style=""> 
+            <td class="col-fin"> 
                <i class="action-icon icon-ok"></i>完結！
             </td>
          </tr>
