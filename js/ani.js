@@ -11,9 +11,7 @@ function getAniList ( ) {
       url: site_url + '/ajax/',
       dataType: 'json',
       error: function(){ console.log('Get animation list failed') },
-      success: function(response){
-            renewList(response);
-         }
+      success: renewList
    } );
 }
 
