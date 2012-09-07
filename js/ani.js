@@ -17,14 +17,17 @@ function getAniList ( ) {
 
 function renewList( response ){
    clearTable();
-   if( response.length > 0  ){
+   if( !('error' in response) ){
       for( aniId in response ){
          var tmpl = $('#row-template').clone().removeAttr('id');
-         $('<tr></tr>').insertAfter('#ani-list > tbody > tr:last');
+         $('<tr></tr>').attr('id', response[aniId]['sn'])
+            .insertAfter('#ani-list > tbody > tr:last');
          var result = $.tmpl( tmpl, response[aniId] )
             .appendTo('#ani-list > tbody > tr:last');
       }
    }else{
+      $('<tr><td colspan="5"></td></tr>').insertAfter('#ani-list > tbody > tr:last');
+      $('tr:last > td').text( response['error'] );
    }
 }
 
