@@ -25,7 +25,12 @@ function getAniList( ) {
       error: function(){ console.log('Get animation list failed') },
       success: function( response ){
          renewList( response );
-         $('i.icon-plus').click( function(){ vol('up', $(this).parent().parent() ); } );
+
+         // Bind clicked event to icons
+         $('td.col-vol > i.icon-plus').click( function(){ volClicked('up', $(this).parent().parent() ); } );
+         $('td.col-vol > i.icon-minus').click( function(){ volClicked('down', $(this).parent().parent() ); } );
+         $('td.col-buy > i.icon-plus').click( function(){ buyClicked('up', $(this).parent().parent() ); } );
+         $('td.col-buy > i.icon-minus').click( function(){ buyClicked('down', $(this).parent().parent() ); } );
       }
    } );
 }
@@ -50,13 +55,26 @@ function clearTable(){
    $('#ani-list > tbody > tr:not(#row-template)').remove();
 }
 
-function vol( act, $targetRow ) {
+function volClicked( act, $targetRow ) {
    if( act !== undefined ){
       var data = {};
+      var id = $targetRow.attr('id');
       if( act === 'up' ){
-         var id = $targetRow.attr('id');
-         console.log( id );
+         console.log( 'vol ' + id + ' up');
       }else{
+         console.log( 'vol ' + id + ' down');
+      }
+   }
+}
+
+function buyClicked( act, $targetRow ) {
+   if( act !== undefined ){
+      var data = {};
+      var id = $targetRow.attr('id');
+      if( act === 'up' ){
+         console.log( 'buy' + id + ' up' ); 
+      }else{
+         console.log( 'buy' + id + ' down' );
       }
    }
 }
