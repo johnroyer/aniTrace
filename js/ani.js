@@ -6,12 +6,27 @@
 
 $('document').ready( getAniList() );
 
-function getAniList ( ) {
+function req( data ) {
+   if( data !== undefined ){
+      var url = site_url + '/ajax/';
+      $.ajax( {
+         url: data['url'],
+         dataType: 'json',
+         error: console.log( data['errorMsg'] ),
+         success: data['onSuccess']
+      } );
+   }
+}
+
+function getAniList( ) {
    $.ajax( {
       url: site_url + '/ajax/',
       dataType: 'json',
       error: function(){ console.log('Get animation list failed') },
-      success: renewList
+      success: function( response ){
+         renewList( response );
+         $('i.icon-plus').click( function(){ vol('up', $(this).parent().parent() ); } );
+      }
    } );
 }
 
@@ -33,4 +48,15 @@ function renewList( response ){
 
 function clearTable(){
    $('#ani-list > tbody > tr:not(#row-template)').remove();
+}
+
+function vol( act, $targetRow ) {
+   if( act !== undefined ){
+      var data = {};
+      if( act === 'up' ){
+         var id = $targetRow.attr('id');
+         console.log( id );
+      }else{
+      }
+   }
 }
