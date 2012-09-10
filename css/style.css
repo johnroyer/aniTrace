@@ -54,13 +54,7 @@ body {
    display: none;
 }
 
-.volume {
-   width: 150px;
-   font-size: xx-large;
-   margin-right: 30px;
-}
-
-.buy {
+[class*="-vol"], [class*="-buy"] {
    width: 150px;
    font-size: xx-large;
    margin-right: 30px;
