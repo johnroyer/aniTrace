@@ -27,10 +27,10 @@ function getAniList( ) {
          renewList( response );
 
          // Bind clicked event to icons
-         $('td.col-vol > i.icon-plus').click( function(){ volClicked('up', $(this).parent().parent() ); } );
-         $('td.col-vol > i.icon-minus').click( function(){ volClicked('down', $(this).parent().parent() ); } );
-         $('td.col-buy > i.icon-plus').click( function(){ buyClicked('up', $(this).parent().parent() ); } );
-         $('td.col-buy > i.icon-minus').click( function(){ buyClicked('down', $(this).parent().parent() ); } );
+         $('td.col-vol > div > i.icon-plus').click( function(){ volClicked('up', $(this) ); } );
+         $('td.col-vol > div > i.icon-minus').click( function(){ volClicked('down', $(this) ); } );
+         $('td.col-buy > div > i.icon-plus').click( function(){ buyClicked('up', $(this) ); } );
+         $('td.col-buy > div > i.icon-minus').click( function(){ buyClicked('down', $(this) ); } );
       }
    } );
 }
@@ -55,26 +55,30 @@ function clearTable(){
    $('#ani-list > tbody > tr:not(#row-template)').remove();
 }
 
-function volClicked( act, $targetRow ) {
+function volClicked( act, $clicked ) {
    if( act !== undefined ){
       var data = {};
-      var id = $targetRow.attr('id');
+      var id = $clicked.parent().parent().parent().attr('id');
+      var $vol = $clicked.parent().parent().children('div.vol');
+      var vol = Number( $vol.text() );
       if( act === 'up' ){
-         console.log( 'vol ' + id + ' up');
+         $vol.text( vol + 1 );
       }else{
-         console.log( 'vol ' + id + ' down');
+         $vol.text( vol - 1 );
       }
    }
 }
 
-function buyClicked( act, $targetRow ) {
+function buyClicked( act, $clicked ) {
    if( act !== undefined ){
       var data = {};
-      var id = $targetRow.attr('id');
+      var id = $clicked.parent().parent().parent().attr('id');
+      var $buy = $clicked.parent().parent().children('div.buy');
+      var buy = Number( $buy.text() );
       if( act === 'up' ){
-         console.log( 'buy' + id + ' up' ); 
+         $buy.text( buy + 1 );
       }else{
-         console.log( 'buy' + id + ' down' );
+         $buy.text( buy - 1 );
       }
    }
 }

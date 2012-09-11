@@ -59,3 +59,12 @@ body {
    font-size: xx-large;
    margin-right: 30px;
 }
+
+.vol, .vol-act, .buy, .buy-act {
+   float: left;
+   margin-right: 8px;
+}
+
+[class*="-act"] > i {
+   vertical-align: middle;
+}

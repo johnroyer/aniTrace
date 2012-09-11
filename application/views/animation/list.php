@@ -26,14 +26,18 @@
             <td class="col-name">${name}</td>
             <td class="col-sub">${sub}</td>
             <td class="col-vol">
-               ${vol} 
-               <i class="action-icon icon-plus"></i>
-               <i class="action-icon icon-minus"></i>
+               <div class="vol">${vol}</div>
+               <div class="vol-act">
+                  <i class="action-icon icon-plus"></i>
+                  <i class="action-icon icon-minus"></i>
+               </div>
             </td>
             <td class="col-buy">
-               ${buy}
-               <i class="action-icon icon-plus"></i>
-               <i class="action-icon icon-minus"></i>
+               <div class="buy">${buy}</div>
+               <div class="buy-act">
+                  <i class="action-icon icon-plus"></i>
+                  <i class="action-icon icon-minus"></i>
+               </div>
             </td>
             <td class="col-fin"> 
                <i class="action-icon icon-ok"></i>完結！
