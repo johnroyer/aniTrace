@@ -40,22 +40,23 @@ class Animation extends CI_Model
 
    public function getVol($aniId)
    {
-      $this->db->where( array(
-         'sn' => $aniId,
-         'user_id' => $this->uid
-      ) );
-      $result = $this->db->get('list')->result_array();
+      $result = $this->getRow($aniId);
       return $result[0]['vol'];
    }
 
    public function getBuy($aniId)
    {
+      $result = $this->getRow($aniId);
+      return $result[0]['buy'];
+   }
+
+   public function getRow($aniId)
+   {
       $this->db->where( array(
          'sn' => $aniId,
          'user_id' => $this->uid
       ) );
-      $result = $this->db->get('list')->result_array();
-      return $result[0]['buy'];
+      return $this->db->get('list')->result_array();
    }
 
    public function setAni($aniId, $name, $sub, $vol)
@@ -77,11 +78,43 @@ class Animation extends CI_Model
       return $this->db->update('list', array('vol' => $vol) );
    }
 
+   public function volDown($aniId)
+   {
+      $vol = $this->getVol($aniId);
+      if( $vol > 0 ){
+         $vol -= 1;
+      }else{
+         $vol = 0;
+      }
+      $this->setVol($aniId, $vol);
+   }
+
+   public function volUp($aniId)
+   {
+      $this->setVol($aniId, $this->getVol($aniId) + 1 );
+   }
+
    public function setBuy($aniId, $vol)
    {
       $this->db->where('sn', $aniId);
       $this->db->where('user_id', $this->uid);
       return $this->db->update('list', array('buy' => $vol) );
+   }
+
+   public function buyDown($aniId)
+   {
+      $buy = $this->getBuy($aniId);
+      if( $buy > 0 ){
+         $buy -= 1;
+      }else{
+         $buy = 0;
+      }
+      $this->setBuy($aniId, $buy);
+   }
+
+   public function buyUp($aniId)
+   {
+      $this->setBuy($aniId, $this->getBuy($aniId) + 1 );
    }
 
    public function newAni($name, $sub)

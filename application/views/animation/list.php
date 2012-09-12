@@ -10,8 +10,8 @@
       <i class="icon-plus-sign"></i><a href="<?php echo site_url('ani/addAni'); ?>">Add</a>
    </p>
 
-   <table class="table">
-      <tbody>
+   <table class="table" id="ani-list">
+      <thead>
          <tr>
             <td>動畫</td>
             <td>字幕組</td>
@@ -19,59 +19,30 @@
             <td>購入集數</td>
             <td></td>
          </tr>
+      </thead>
 
-         <tr class="row-template">
-            <td></td>
-            <td></td>
-            <td class="volume">
-               <a href="#"><i class="action-icon icon-plus"></i></a>
-               <a href="#"><i class="action-icon icon-minus"></i></a>
+      <tbody>
+         <tr id="row-template">
+            <td class="col-name">${name}</td>
+            <td class="col-sub">${sub}</td>
+            <td class="col-vol">
+               <div class="vol">${vol}</div>
+               <div class="vol-act">
+                  <i class="icon-plus"></i>
+                  <i class="icon-minus"></i>
+               </div>
             </td>
-            <td class="buy">
-               <a href="#"><i class="action-icon icon-plus"></i></a>
-               <a href="#"><i class="action-icon icon-minus"></i></a>
+            <td class="col-buy">
+               <div class="buy">${buy}</div>
+               <div class="buy-act">
+                  <i class="icon-plus"></i>
+                  <i class="icon-minus"></i>
+               </div>
             </td>
-            <td style=""> 
-               <a class="action-link" href="#"><i class="action-icon icon-ok"></i>完結！</a>
-            </td>
-         </tr>
-
-         <?php 
-
-         if( count( $list ) > 0 ):
-         
-            foreach( $list as $row ):
-
-         ?>
-
-         <tr class="">
-            <td><?php echo $row['name']; ?></td>
-            <td><?php echo $row['sub']; ?></td>
-            <td class="volume"><?php echo $row['vol']; ?>
-               <a href="<?php echo site_url('ani/vol/up/'.$row['sn']); ?>"><i class="action-icon icon-plus"></i></a>
-               <a href="<?php echo site_url('ani/vol/down/'.$row['sn']); ?>"><i class="action-icon icon-minus"></i></a>
-            </td>
-            <td class="buy"><?php echo $row['buy']; ?>
-               <a href="<?php echo site_url('ani/buy/up/'.$row['sn']); ?>"><i class="action-icon icon-plus"></i></a>
-               <a href="<?php echo site_url('ani/buy/down/'.$row['sn']); ?>"><i class="action-icon icon-minus"></i></a>
-            </td>
-            <td style=""> 
-               <a class="action-link" href="#"><i class="action-icon icon-ok"></i>完結！</a>
+            <td class="col-fin"> 
+               <i class="icon-ok"></i> 完結！
             </td>
          </tr>
-      
-         <?php 
-               endforeach;
-
-            else:
-         ?>
-
-         <tr>
-            <td colspan="4" style="text-align: center;">尚無資料</td>
-         </tr>
-
-         <?php  endif;  ?>
-
 
       </tbody>
    </table>

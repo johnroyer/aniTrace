@@ -1,8 +1,7 @@
 <?php
 
-class Ani extends CI_Controller
+class Ajax extends CI_Controller
 {
-   
    private $user;
 
    function __construct( )
@@ -21,23 +20,7 @@ class Ani extends CI_Controller
 
    public function index()
    {
-      $data['user'] = $this->user;
-      $data['loggedin'] = true;
-      $data['list'] = $this->animation->getList();
-      $this->load->view('animation/list', $data);
-   }
-
-   public function buy($act, $id=0)
-   {
-      if( intval( $id ) != 0 ){
-         if( $act == 'up' ){
-            $this->animation->buyUp($id);
-            redirect('ani/');
-         }else{
-            $this->animation->buyDown($id);
-            redirect('ani/');
-         }
-      }
+      echo json_encode( $this->animation->getList() );
    }
 
    public function vol($act, $id=0)
@@ -45,10 +28,23 @@ class Ani extends CI_Controller
       if( intval( $id ) != 0 ){
          if( $act == 'up' ){
             $this->animation->volUp($id);
-            redirect('ani/');
+            echo json_encode( $this->animation->getRow($id) );
          }else{
             $this->animation->volDown($id);
-            redirect('ani/');
+            echo json_encode( $this->animation->getRow($id) );
+         }
+      }
+   }
+
+   public function buy($act, $id=0)
+   {
+      if( intval( $id ) != 0 ){
+         if( $act == 'up' ){
+            $this->animation->buyUp($id);
+            echo json_encode( $this->animation->getRow($id) );
+         }else{
+            $this->animation->buyDown($id);
+            echo json_encode( $this->animation->getRow($id) );
          }
       }
    }
