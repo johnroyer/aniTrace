@@ -6,18 +6,6 @@
 
 $('document').ready( getAniList() );
 
-function req( data ) {
-   if( data !== undefined ){
-      var url = site_url + '/ajax/';
-      $.ajax( {
-         url: data.url,
-         dataType: 'json',
-         error: console.log( data.errorMsg ),
-         success: data.onSuccess
-      } );
-   }
-}
-
 function getAniList( ) {
    $.ajax( {
       url: site_url + '/ajax/',
@@ -55,16 +43,35 @@ function clearTable(){
    $('#ani-list > tbody > tr:not(#row-template)').remove();
 }
 
+function req( data ) {
+   if( data !== undefined ){
+      var url = site_url + '/ajax/';
+      $.ajax( {
+         url:  url + data.path,
+         dataType: 'json',
+         error: function(){ console.log( data.errorMsg ) },
+         success: data.onSuccess
+      } );
+   }
+}
+
 function volClicked( act, $clicked ) {
    if( act !== undefined ){
-      var data = {};
       var id = $clicked.parent().parent().parent().attr('id');
       var $vol = $clicked.parent().parent().children('div.vol');
       var vol = Number( $vol.text() );
+      var data = {
+         errorMsg: 'vol access failed',
+         onSuccess: function( response ){
+            $vol.text( response[0].vol );
+         }
+      };
       if( act === 'up' ){
-         $vol.text( vol + 1 );
+         data.path = 'vol/up/' + id;
+         req( data );
       }else{
-         $vol.text( vol - 1 );
+         data.path = 'vol/down/' + id;
+         req( data );
       }
    }
 }
@@ -75,10 +82,18 @@ function buyClicked( act, $clicked ) {
       var id = $clicked.parent().parent().parent().attr('id');
       var $buy = $clicked.parent().parent().children('div.buy');
       var buy = Number( $buy.text() );
+      var data = {
+         errorMsg: 'buy access failed',
+         onSuccess: function( response ){
+            $buy.text( response[0].buy );
+         }
+      };
       if( act === 'up' ){
-         $buy.text( buy + 1 );
+         data.path = 'buy/up/' + id;
+         req( data );
       }else{
-         $buy.text( buy - 1 );
+         data.path = 'buy/down/' + id;
+         req( data );
       }
    }
 }
