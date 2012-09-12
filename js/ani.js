@@ -10,10 +10,10 @@ function req( data ) {
    if( data !== undefined ){
       var url = site_url + '/ajax/';
       $.ajax( {
-         url: data['url'],
+         url: data.url,
          dataType: 'json',
-         error: console.log( data['errorMsg'] ),
-         success: data['onSuccess']
+         error: console.log( data.errorMsg ),
+         success: data.onSuccess
       } );
    }
 }
