@@ -28,19 +28,19 @@
             <td class="col-vol">
                <div class="vol">${vol}</div>
                <div class="vol-act">
-                  <i class="action-icon icon-plus"></i>
-                  <i class="action-icon icon-minus"></i>
+                  <i class="icon-plus"></i>
+                  <i class="icon-minus"></i>
                </div>
             </td>
             <td class="col-buy">
                <div class="buy">${buy}</div>
                <div class="buy-act">
-                  <i class="action-icon icon-plus"></i>
-                  <i class="action-icon icon-minus"></i>
+                  <i class="icon-plus"></i>
+                  <i class="icon-minus"></i>
                </div>
             </td>
             <td class="col-fin"> 
-               <i class="action-icon icon-ok"></i>完結！
+               <i class="icon-ok"></i> 完結！
             </td>
          </tr>
 
