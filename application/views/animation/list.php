@@ -47,4 +47,30 @@
       </tbody>
    </table>
 
+<div class="dialog span6">
+   <h3>新增動畫</h3>
+
+   <form class="well form-horizontal" action="<?php echo site_url('ani/addAni'); ?>" method="post">
+      <div class="control-group">
+         <label class="control-label" for="name">動畫名稱</label>
+         <div class="controls">
+            <input type="text" name="name" value="">
+         </div>
+      </div>
+
+      <div class="control-group">
+         <label class="control-label" for="sub">字幕組</label>
+         <div class="controls">
+            <input type="text" name="sub" value="">
+         </div>
+      </div>
+
+      <div class="form-actions">
+         <button class="btn btn-primary" type="submit">新增</button>
+         <a class="btn" href="<?php echo site_url('ani/addAni'); ?>">取消</a>
+      </div>
+
+   </form>
+</div>
+
 <?php $this->load->view('footer');  ?>
