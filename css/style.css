@@ -60,3 +60,7 @@ body {
    margin-right: 8px;
    vertical-align: text-top;
 }
+
+.hidden {
+   display: none;
+}

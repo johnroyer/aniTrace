@@ -47,7 +47,10 @@
       </tbody>
    </table>
 
-<div class="dialog span6">
+<div class="dialog hidden">
+</div>
+
+<div id="addAni" class="hidden">
    <h3>新增動畫</h3>
 
    <form class="well form-horizontal" action="<?php echo site_url('ani/addAni'); ?>" method="post">
