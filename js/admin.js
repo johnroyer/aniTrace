@@ -10,10 +10,6 @@ $('#username-key').keyup(  function(){
       fetchUser( keyword );
 });
 
-function clearTable(){
-   $('#user-list > tbody > tr:not(#row-template)').remove();
-}
-
 function fetchUser( keyword ){
    $.ajax( {
       url: site_url + '/admin/searchUser/' + encodeURIComponent( keyword ),
@@ -26,7 +22,7 @@ function fetchUser( keyword ){
 }
 
 function renewTable( list ){
-   clearTable();
+   clearTable('#user-list');
    for( index in list ){
       $('#user-list > tbody > tr:last').after( $('#row-template').clone().removeAttr('id') );
       var $currRow = $('tr:last');

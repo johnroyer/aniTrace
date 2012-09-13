@@ -12,6 +12,6 @@
 <script src="<?php echo base_url(); ?>js/admin.js"></script>
 <script src="<?php echo base_url(); ?>js/user.form.js"></script>
 <script src="<?php echo base_url(); ?>js/ani.js"></script>
-<script src="<?php echo base_url(); ?>js/script.js"></script>
+<script src="<?php echo base_url(); ?>js/common.js"></script>
 </body>
 </html>

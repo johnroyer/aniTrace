@@ -24,7 +24,7 @@ function getAniList( ) {
 }
 
 function renewList( response ){
-   clearTable();
+   clearTable('#ani-list');
    if( !('error' in response) ){
       for( aniId in response ){
          var tmpl = $('#row-template').clone().removeAttr('id');
@@ -37,10 +37,6 @@ function renewList( response ){
       $('<tr><td colspan="5"></td></tr>').insertAfter('#ani-list > tbody > tr:last');
       $('tr:last > td').text( response['error'] );
    }
-}
-
-function clearTable(){
-   $('#ani-list > tbody > tr:not(#row-template)').remove();
 }
 
 function req( data ) {
