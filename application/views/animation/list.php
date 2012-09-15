@@ -7,7 +7,7 @@
    <h2>Hello, <?php echo $user['username']; ?></h2>
 
    <p id="list-control">
-      <a class="btn btn-primary" href="#"><i class="icon-plus"></i> 新增</a>
+      <a id="act-add" class="btn btn-primary" href="#"><i class="icon-plus"></i> 新增</a>
    </p>
 
    <table class="table" id="ani-list">
@@ -75,7 +75,7 @@
 
          <div class="form-actions">
             <button class="btn btn-primary" type="submit">新增</button>
-            <a class="btn" href="<?php echo site_url('ani/addAni'); ?>">取消</a>
+            <a class="btn" href="#" onClick="javascript: hideDialog()">取消</a>
          </div>
 
       </form>

@@ -4,7 +4,12 @@
  *
  *****************************************************************************/
 
-$('document').ready( getAniList() );
+$('document').ready(  function(){
+      getAniList();
+
+      // Event of button 'add animation'
+      $('#act-add').click( function(){ showDialog( $('#dialog-addAni').html() ); } );
+});
 
 function getAniList( ) {
    $.ajax( {
@@ -92,4 +97,14 @@ function buyClicked( act, $clicked ) {
          req( data );
       }
    }
+}
+
+function showDialog( content ){
+   $('#dialog-content').html( content );
+   $('#dialog-outter').removeClass('hidden');
+}
+
+function hideDialog(){
+   $('#dialog-content').html('');
+   $('#dialog-outter').addClass('hidden');
 }
