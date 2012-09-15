@@ -39,8 +39,9 @@
                   <i class="icon-minus"></i>
                </div>
             </td>
-            <td class="col-fin"> 
-               <i class="icon-ok"></i> 完結！
+            <td class="col-act"> 
+               <i id="act-edit" class="act-icon icon-edit"></i>
+               <i id="act-delete" class="act-icon icon-trash"></i>
             </td>
          </tr>
 
