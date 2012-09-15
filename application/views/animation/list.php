@@ -74,7 +74,7 @@
          </div>
 
          <div class="form-actions">
-            <button class="btn btn-primary" type="submit">新增</button>
+            <a class="btn btn-primary" href="#" onClick="">新增</a>
             <a class="btn" href="#" onClick="javascript: hideDialog()">取消</a>
          </div>
 
