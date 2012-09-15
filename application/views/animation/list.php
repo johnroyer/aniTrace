@@ -58,7 +58,7 @@
    <div id="dialog-addAni" class="hidden">
       <h3>新增動畫</h3>
 
-      <form class="well form-horizontal" action="<?php echo site_url('ani/addAni'); ?>" method="post">
+      <form class="well form-horizontal" action="#" method="post">
          <div class="control-group">
             <label class="control-label" for="name">動畫名稱</label>
             <div class="controls">
@@ -78,6 +78,45 @@
             <a class="btn" href="#" onClick="javascript: hideDialog()">取消</a>
          </div>
 
+      </form>
+   </div>
+
+   <div id="dialog-edit" class="hidden">
+      <h3>修改</h3>
+
+      <form class="well form-horizontal" action="#" method="post">
+         <div class="control-group">
+            <label class="control-label" for="name">動畫名稱</label>
+            <div class="controls">
+               <input type="text" name="name" value="">
+            </div>
+         </div>
+
+         <div class="control-group">
+            <label class="control-label" for="sub">字幕組</label>
+            <div class="controls">
+               <input type="text" name="sub" value="">
+            </div>
+         </div>
+
+         <div class="control-group">
+            <label class="control-label" for="sub">集數</label>
+            <div class="controls">
+               <input type="text" name="vol" value="">
+            </div>
+         </div>
+
+         <div class="control-group">
+            <label class="control-label" for="sub">購入集數</label>
+            <div class="controls">
+               <input type="text" name="buy" value="">
+            </div>
+         </div>
+
+         <div class="form-actions">
+            <a class="btn btn-primary" href="#" onClick="">新增</a>
+            <a class="btn" href="#" onClick="javascript: hideDialog()">取消</a>
+         </div>
       </form>
    </div>
 
