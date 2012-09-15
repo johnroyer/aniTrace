@@ -7,7 +7,7 @@
    <h2>Hello, <?php echo $user['username']; ?></h2>
 
    <p id="list-control">
-      <i class="icon-plus-sign"></i><a href="<?php echo site_url('ani/addAni'); ?>">Add</a>
+      <a class="btn btn-primary" href="#"><i class="icon-plus"></i> 新增</a>
    </p>
 
    <table class="table" id="ani-list">
@@ -47,33 +47,37 @@
       </tbody>
    </table>
 
-<div class="dialog hidden">
-</div>
-
-<div id="addAni" class="hidden">
-   <h3>新增動畫</h3>
-
-   <form class="well form-horizontal" action="<?php echo site_url('ani/addAni'); ?>" method="post">
-      <div class="control-group">
-         <label class="control-label" for="name">動畫名稱</label>
-         <div class="controls">
-            <input type="text" name="name" value="">
+   <div id="dialog-outter" class="hidden">
+      <div id="dialog-border">
+         <div id="dialog-content">
          </div>
       </div>
+   </div>
 
-      <div class="control-group">
-         <label class="control-label" for="sub">字幕組</label>
-         <div class="controls">
-            <input type="text" name="sub" value="">
+   <div id="dialog-addAni" class="hidden">
+      <h3>新增動畫</h3>
+
+      <form class="well form-horizontal" action="<?php echo site_url('ani/addAni'); ?>" method="post">
+         <div class="control-group">
+            <label class="control-label" for="name">動畫名稱</label>
+            <div class="controls">
+               <input type="text" name="name" value="">
+            </div>
          </div>
-      </div>
 
-      <div class="form-actions">
-         <button class="btn btn-primary" type="submit">新增</button>
-         <a class="btn" href="<?php echo site_url('ani/addAni'); ?>">取消</a>
-      </div>
+         <div class="control-group">
+            <label class="control-label" for="sub">字幕組</label>
+            <div class="controls">
+               <input type="text" name="sub" value="">
+            </div>
+         </div>
 
-   </form>
-</div>
+         <div class="form-actions">
+            <button class="btn btn-primary" type="submit">新增</button>
+            <a class="btn" href="<?php echo site_url('ani/addAni'); ?>">取消</a>
+         </div>
+
+      </form>
+   </div>
 
 <?php $this->load->view('footer');  ?>
