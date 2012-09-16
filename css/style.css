@@ -70,10 +70,6 @@ body {
    font-size: 24px;
 }
 
-.hidden {
-   display: none;
-}
-
 #dialog-outter {
    min-width: 100%;
    min-height: 100%;
@@ -98,4 +94,17 @@ body {
 #dialog-content {
    background-color: white;
    padding: 15px 20px;
+}
+
+.modal {
+   padding: 15px 25px;
+   border: 10px solid rgba(160, 160, 160, .6);
+   border-radius: 8px;
+   -webkit-border-radius: 8px;
+   -moz-border-radius: 8px;
+   box-shadow: none;
+}
+
+.modal.fade {
+   top: 50%;
 }

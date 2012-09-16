@@ -7,7 +7,7 @@
    <h2>Hello, <?php echo $user['username']; ?></h2>
 
    <p id="list-control">
-      <a id="act-add" class="btn btn-primary" href="#"><i class="icon-plus"></i> 新增</a>
+      <a id="act-add" class="btn btn-primary" href="#dialog-addAni" data-toggle="modal"><i class="icon-plus"></i> 新增</a>
    </p>
 
    <table class="table" id="ani-list">
@@ -48,14 +48,7 @@
       </tbody>
    </table>
 
-   <div id="dialog-outter" class="hidden">
-      <div id="dialog-border">
-         <div id="dialog-content">
-         </div>
-      </div>
-   </div>
-
-   <div id="dialog-addAni" class="hidden">
+   <div id="dialog-addAni" class="modal hide fade">
       <h3>新增動畫</h3>
 
       <form class="well form-horizontal" action="#" method="post">
