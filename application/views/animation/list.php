@@ -67,8 +67,8 @@
          </div>
 
          <div class="form-actions">
-            <a class="btn btn-primary" href="#" onClick="">新增</a>
-            <a class="btn" href="#" onClick="javascript: hideDialog()">取消</a>
+            <a class="btn btn-primary" href="#" id="submit-new-animation">新增</a>
+            <a class="btn" href="#" data-dismiss="modal" aria-hidden="true">取消</a>
          </div>
 
       </form>
@@ -108,7 +108,7 @@
 
          <div class="form-actions">
             <a class="btn btn-primary" href="#" onClick="">新增</a>
-            <a class="btn" href="#" onClick="javascript: hideDialog()">取消</a>
+            <a class="btn" href="#" data-dismiss="modal" aria-hidden="true">取消</a>
          </div>
       </form>
    </div>
