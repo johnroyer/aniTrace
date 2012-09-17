@@ -118,6 +118,6 @@ $(function () {
          .modal(option)
          .one('hide', function () {
             $this.focus()
-            })
          })
       })
+})
