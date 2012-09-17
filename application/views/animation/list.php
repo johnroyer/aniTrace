@@ -74,7 +74,7 @@
       </form>
    </div>
 
-   <div id="dialog-edit" class="hidden">
+   <div id="dialog-edit" class="hide">
       <h3>修改</h3>
 
       <form class="well form-horizontal" action="#" method="post">
