@@ -137,3 +137,8 @@ $('#dialog-edit').on('show', function(){
       $this.find('#ani-buy').val( buy );
       console.log( aniId );
 } );
+
+// Bind click event to submit button in dialog
+$('#submit-new-animation').click( function(){
+      console.log('form submit');
+});
