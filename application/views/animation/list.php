@@ -81,28 +81,28 @@
          <div class="control-group">
             <label class="control-label" for="name">動畫名稱</label>
             <div class="controls">
-               <input type="text" name="name" value="">
+               <input type="text" id="ani-name" name="name" value="">
             </div>
          </div>
 
          <div class="control-group">
             <label class="control-label" for="sub">字幕組</label>
             <div class="controls">
-               <input type="text" name="sub" value="">
+               <input type="text" id="ani-sub" name="sub" value="">
             </div>
          </div>
 
          <div class="control-group">
             <label class="control-label" for="sub">集數</label>
             <div class="controls">
-               <input type="text" name="vol" value="">
+               <input type="text" id="ani-vol" name="vol" value="">
             </div>
          </div>
 
          <div class="control-group">
             <label class="control-label" for="sub">購入集數</label>
             <div class="controls">
-               <input type="text" name="buy" value="">
+               <input type="text" id="ani-buy" name="buy" value="">
             </div>
          </div>
 
