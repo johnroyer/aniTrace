@@ -40,8 +40,8 @@
                </div>
             </td>
             <td class="col-act"> 
-               <i id="act-edit" class="act-icon icon-edit"></i>
-               <i id="act-delete" class="act-icon icon-trash"></i>
+               <i class="act-edit act-icon icon-edit" data-toggle="modal" data-target="#dialog-edit" data-id=""></i>
+               <i class="act-delete act-icon icon-trash"></i>
             </td>
          </tr>
 
@@ -74,7 +74,7 @@
       </form>
    </div>
 
-   <div id="dialog-edit" class="hide">
+   <div id="dialog-edit" class="modal hide fade">
       <h3>修改</h3>
 
       <form class="well form-horizontal" action="#" method="post">

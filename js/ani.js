@@ -34,6 +34,7 @@ function renewList( response ){
             .insertAfter('#ani-list > tbody > tr:last');
          var result = $.tmpl( tmpl, response[aniId] )
             .appendTo('#ani-list > tbody > tr:last');
+         $('#ani-list > tbody > tr:last > td.col-act > .act-edit').attr('data-id', response[aniId]['sn'] );
       }
    }else{
       $('<tr><td colspan="5"></td></tr>').insertAfter('#ani-list > tbody > tr:last');
