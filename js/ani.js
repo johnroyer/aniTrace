@@ -96,3 +96,28 @@ function buyClicked( act, $clicked ) {
       }
    }
 }
+
+/* ==========================================================
+ * Own modal dialog. This modal get id from toggle 'form-edit'
+ * and pass 'id' to data-id in target form.
+ * ========================================================== */
+$(function () {
+      $('body').on('click.modal.data-api', '[data-toggle="form-modal"]', function ( e ) {
+         var $this = $(this)
+         , href = $this.attr('href')
+         , $target = $($this.attr('data-target') || (href && href.replace(/.*(?=#[^\s]+$)/, ''))) //strip for ie7
+         , option = $target.data('modal') ? 'toggle' : $.extend({ remote: !/#/.test(href) && href }, $target.data(), $this.data())
+
+         var id = $this.attr('data-id');
+         var $form = $target.find('> form');
+         $form.attr('data-id', id);
+
+         e.preventDefault()
+
+         $target
+         .modal(option)
+         .one('hide', function () {
+            $this.focus()
+            })
+         })
+      })
