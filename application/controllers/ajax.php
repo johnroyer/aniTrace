@@ -49,6 +49,20 @@ class Ajax extends CI_Controller
       }
    }
 
+   public function add()
+   {
+      $name = $this->input->post('name', true);
+      $sub = $this->input->post('sub', true);
+      if( $name != '' ){
+         $id = $this->animation->newAni($name, $sub);
+         $data = $this->animation->getRow($id);
+         unset( $data['user_id'] );
+         echo json_encode( $data );
+      }else{
+         echo json_encode( array('stat'=>'no input data') );
+      }
+   }
+
    private function _getUserInfo($id=NULL)
    {
       $info = $this->ion_auth->user($id)->row();

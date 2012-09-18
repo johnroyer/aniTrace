@@ -7,7 +7,7 @@
    <h2>Hello, <?php echo $user['username']; ?></h2>
 
    <p id="list-control">
-      <i class="icon-plus-sign"></i><a href="<?php echo site_url('ani/addAni'); ?>">Add</a>
+      <a id="act-add" class="btn btn-primary" href="#dialog-addAni" data-toggle="form-modal"><i class="icon-plus"></i> 新增</a>
    </p>
 
    <table class="table" id="ani-list">
@@ -39,12 +39,78 @@
                   <i class="icon-minus"></i>
                </div>
             </td>
-            <td class="col-fin"> 
-               <i class="icon-ok"></i> 完結！
+            <td class="col-act"> 
+               <i class="act-edit act-icon icon-edit" data-toggle="form-modal" data-target="#dialog-edit" data-id=""></i>
+               <i class="act-delete act-icon icon-trash"></i>
             </td>
          </tr>
 
       </tbody>
    </table>
+
+   <div id="dialog-addAni" class="modal hide fade">
+      <h3>新增動畫</h3>
+
+      <form class="well form-horizontal" action="#" method="post">
+         <div class="control-group">
+            <label class="control-label" for="name">動畫名稱</label>
+            <div class="controls">
+               <input type="text" name="name" value="">
+            </div>
+         </div>
+
+         <div class="control-group">
+            <label class="control-label" for="sub">字幕組</label>
+            <div class="controls">
+               <input type="text" name="sub" value="">
+            </div>
+         </div>
+
+         <div class="form-actions">
+            <a class="btn btn-primary" href="#" id="submit-new-animation">新增</a>
+            <a class="btn" href="#" data-dismiss="modal" aria-hidden="true">取消</a>
+         </div>
+
+      </form>
+   </div>
+
+   <div id="dialog-edit" class="modal hide fade">
+      <h3>修改</h3>
+
+      <form class="well form-horizontal" action="#" method="post">
+         <div class="control-group">
+            <label class="control-label" for="name">動畫名稱</label>
+            <div class="controls">
+               <input type="text" id="ani-name" name="name" value="">
+            </div>
+         </div>
+
+         <div class="control-group">
+            <label class="control-label" for="sub">字幕組</label>
+            <div class="controls">
+               <input type="text" id="ani-sub" name="sub" value="">
+            </div>
+         </div>
+
+         <div class="control-group">
+            <label class="control-label" for="sub">集數</label>
+            <div class="controls">
+               <input type="text" id="ani-vol" name="vol" value="">
+            </div>
+         </div>
+
+         <div class="control-group">
+            <label class="control-label" for="sub">購入集數</label>
+            <div class="controls">
+               <input type="text" id="ani-buy" name="buy" value="">
+            </div>
+         </div>
+
+         <div class="form-actions">
+            <a class="btn btn-primary" href="#" onClick="">新增</a>
+            <a class="btn" href="#" data-dismiss="modal" aria-hidden="true">取消</a>
+         </div>
+      </form>
+   </div>
 
 <?php $this->load->view('footer');  ?>

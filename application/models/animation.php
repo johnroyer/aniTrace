@@ -127,6 +127,7 @@ class Animation extends CI_Model
          'buy' => 0
       );
       $this->db->insert('list', $data);
+      return $this->db->insert_id();
    }
 
    public function deleteAni($aniId)

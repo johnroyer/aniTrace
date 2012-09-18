@@ -4,7 +4,9 @@
  *
  *****************************************************************************/
 
-$('document').ready( getAniList() );
+$('document').ready(  function(){
+      getAniList();
+});
 
 function getAniList( ) {
    $.ajax( {
@@ -32,6 +34,7 @@ function renewList( response ){
             .insertAfter('#ani-list > tbody > tr:last');
          var result = $.tmpl( tmpl, response[aniId] )
             .appendTo('#ani-list > tbody > tr:last');
+         $('#ani-list > tbody > tr:last > td.col-act > .act-edit').attr('data-id', response[aniId]['sn'] );
       }
    }else{
       $('<tr><td colspan="5"></td></tr>').insertAfter('#ani-list > tbody > tr:last');
@@ -93,3 +96,74 @@ function buyClicked( act, $clicked ) {
       }
    }
 }
+
+/* ==========================================================
+ * Own modal dialog. This modal get id from toggle 'form-edit'
+ * and pass 'id' to data-id in target form.
+ * ========================================================== */
+$(function () {
+      $('body').on('click.modal.data-api', '[data-toggle="form-modal"]', function ( e ) {
+         var $this = $(this)
+         , href = $this.attr('href')
+         , $target = $($this.attr('data-target') || (href && href.replace(/.*(?=#[^\s]+$)/, ''))) //strip for ie7
+         , option = $target.data('modal') ? 'toggle' : $.extend({ remote: !/#/.test(href) && href }, $target.data(), $this.data())
+
+         var id = $this.attr('data-id');
+         var $form = $target.find('> form');
+         $form.attr('data-id', id);
+         $form.addClass('active');
+
+         e.preventDefault()
+
+         $target
+         .modal(option)
+         .one('hide', function () {
+            $this.focus()
+         })
+      })
+})
+
+$('.modal').on('hide', function(){
+      $(this).find('form').removeClass('active');
+});
+
+// Adding events to modal 'dialog-edit'
+$('#dialog-edit').on('show', function(){
+      var $this = $(this);
+      var aniId = $this.find('> form').attr('data-id');
+      var $targetRow = $('#ani-list > tbody > tr#' + aniId);
+      var name = $targetRow.find('> td.col-name').text();
+      var sub = $targetRow.find('> td.col-sub').text();
+      var vol = $targetRow.find('> td.col-vol > div.vol').text();
+      var buy = $targetRow.find('> td.col-buy > div.buy').text();
+      $this.find('#ani-name').val( name );
+      $this.find('#ani-sub').val( sub );
+      $this.find('#ani-vol').val( vol );
+      $this.find('#ani-buy').val( buy );
+      console.log( aniId );
+} );
+
+// Bind click event to submit button in dialog
+$('#submit-new-animation').click( function(){
+      console.log('form submit');
+      $.post( site_url+'/ajax/add/', $('form.active').serializeArray() , 
+         function( response ){ 
+            // Add Animation into list
+            var tmpl = $('#row-template').clone().removeAttr('id');
+            $('<tr></tr>').attr('id', response[0].sn)
+            .insertAfter('#ani-list > tbody > tr:last');
+            var result = $.tmpl( tmpl, response[0] )
+            .appendTo('#ani-list > tbody > tr:last');
+            $('#ani-list > tbody > tr:last > td.col-act > .act-edit').attr('data-id', response[0].sn );
+            
+            // Bind clicked event to icons
+            $('td.col-vol > div > i.icon-plus').click( function(){ volClicked('up', $(this) ); } );
+            $('td.col-vol > div > i.icon-minus').click( function(){ volClicked('down', $(this) ); } );
+            $('td.col-buy > div > i.icon-plus').click( function(){ buyClicked('up', $(this) ); } );
+            $('td.col-buy > div > i.icon-minus').click( function(){ buyClicked('down', $(this) ); } );
+
+            // Close dialog
+            $('#dialog-addAni').modal('hide');
+
+         }, 'json' );
+});

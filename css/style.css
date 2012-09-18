@@ -60,3 +60,50 @@ body {
    margin-right: 8px;
    vertical-align: text-top;
 }
+
+.act-icon {
+   letter-spacing: 5px;
+}
+
+.col-act > i {
+   font-size: 24px;
+}
+
+#dialog-outter {
+   min-width: 100%;
+   min-height: 100%;
+   position: absolute;
+   right: 0;
+   top: 0;
+   z-index: 1050;
+   background-color: rgba(0, 0, 0, .7);
+}
+
+#dialog-border {
+   width: 500px;
+   margin-top: 50px;
+   margin-left: auto;
+   margin-right: auto;
+   border: 10px solid rgba(160, 160, 160, .6);
+   border-radius: 8px;
+   -webkit-border-radius: 8px;
+   -moz-border-radius: 8px;
+}
+
+#dialog-content {
+   background-color: white;
+   padding: 15px 20px;
+}
+
+.modal {
+   padding: 15px 25px;
+   border: 10px solid rgba(160, 160, 160, .6);
+   border-radius: 8px;
+   -webkit-border-radius: 8px;
+   -moz-border-radius: 8px;
+   box-shadow: none;
+}
+
+.modal.fade {
+   top: 50%;
+}
