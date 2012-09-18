@@ -7,7 +7,7 @@
    <h2>Hello, <?php echo $user['username']; ?></h2>
 
    <p id="list-control">
-      <a id="act-add" class="btn btn-primary" href="#dialog-addAni" data-toggle="modal"><i class="icon-plus"></i> 新增</a>
+      <a id="act-add" class="btn btn-primary" href="#dialog-addAni" data-toggle="form-modal"><i class="icon-plus"></i> 新增</a>
    </p>
 
    <table class="table" id="ani-list">

@@ -146,4 +146,18 @@ $('#dialog-edit').on('show', function(){
 // Bind click event to submit button in dialog
 $('#submit-new-animation').click( function(){
       console.log('form submit');
+      $.post( site_url+'/ajax/add/', $('form.active').serializeArray() , 
+         function( response ){ 
+            // Add Animation into list
+            var tmpl = $('#row-template').clone().removeAttr('id');
+            $('<tr></tr>').attr('id', response[0].sn)
+            .insertAfter('#ani-list > tbody > tr:last');
+            var result = $.tmpl( tmpl, response[0] )
+            .appendTo('#ani-list > tbody > tr:last');
+            $('#ani-list > tbody > tr:last > td.col-act > .act-edit').attr('data-id', response[0].sn );
+            
+            // Close dialog
+            $('#dialog-addAni').modal('hide');
+
+         }, 'json' );
 });
