@@ -156,6 +156,12 @@ $('#submit-new-animation').click( function(){
             .appendTo('#ani-list > tbody > tr:last');
             $('#ani-list > tbody > tr:last > td.col-act > .act-edit').attr('data-id', response[0].sn );
             
+            // Bind clicked event to icons
+            $('td.col-vol > div > i.icon-plus').click( function(){ volClicked('up', $(this) ); } );
+            $('td.col-vol > div > i.icon-minus').click( function(){ volClicked('down', $(this) ); } );
+            $('td.col-buy > div > i.icon-plus').click( function(){ buyClicked('up', $(this) ); } );
+            $('td.col-buy > div > i.icon-minus').click( function(){ buyClicked('down', $(this) ); } );
+
             // Close dialog
             $('#dialog-addAni').modal('hide');
 
