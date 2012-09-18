@@ -111,6 +111,7 @@ $(function () {
          var id = $this.attr('data-id');
          var $form = $target.find('> form');
          $form.attr('data-id', id);
+         $form.addClass('active');
 
          e.preventDefault()
 
@@ -121,6 +122,10 @@ $(function () {
          })
       })
 })
+
+$('.modal').on('hide', function(){
+      $(this).find('form').removeClass('active');
+});
 
 // Adding events to modal 'dialog-edit'
 $('#dialog-edit').on('show', function(){
