@@ -107,7 +107,7 @@
          </div>
 
          <div class="form-actions">
-            <a class="btn btn-primary" href="#" onClick="">新增</a>
+            <a class="btn btn-primary" href="#">修改</a>
             <a class="btn" href="#" data-dismiss="modal" aria-hidden="true">取消</a>
          </div>
       </form>
