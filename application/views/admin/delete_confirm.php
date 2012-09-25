@@ -6,14 +6,14 @@
 <p style="margin-top: 25px;"> </p>
 
 <div class="span6 pull-center alert alert-error">
-<h3>Delete Confirm</h3>
-<p>You are going to delete an account!</p>
+<h3>刪除確認</h3>
+<p>你正準備要刪除一個帳號！</p>
 <p>ID: <?php echo $target['id']; ?></p>
-<p>User name: <?php echo $target['username']; ?></p>
+<p>帳號： <?php echo $target['username']; ?></p>
 <p>Email: <?php echo $target['email']; ?></p>
 <p>
-   <a class="btn btn-danger" href="<?php echo site_url('admin/deleteUser/'.$target['id'].'/confirmed');?>">Delete</a>
-   <a class="btn" href="<?php echo site_url('admin/'); ?>">Cancel</a>
+   <a class="btn btn-danger" href="<?php echo site_url('admin/deleteUser/'.$target['id'].'/confirmed');?>">刪除</a>
+   <a class="btn" href="<?php echo site_url('admin/'); ?>">取消</a>
 </p>
 </div>
 
