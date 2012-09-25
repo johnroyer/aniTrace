@@ -59,8 +59,21 @@ class Animation extends CI_Model
       return $this->db->get('list')->result_array();
    }
 
-   public function setAni($aniId, $name, $sub, $vol)
+   public function setAni($aniId, $name, $sub, $vol, $buy)
    {
+      $vol = intval( $vol );
+      $buy = intval( $buy );
+      $vol = $vol >= 0 ? $vol : 0;
+      $buy = $buy >= 0 ? $buy : 0;
+      $this->db->where('sn', $aniId);
+      $this->db->where('user_id', $this->uid);
+      $data = array(
+         'name' => $name,
+         'sub' => $sub,
+         'vol' => $vol,
+         'buy' => $buy
+      );
+      return $this->db->update('list', $data );
    }
 
    public function setName($aniId, $name)

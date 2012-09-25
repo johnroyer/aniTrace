@@ -167,3 +167,26 @@ $('#submit-new-animation').click( function(){
 
          }, 'json' );
 });
+
+// Submit changes
+$('#submit-animation-change').click( function(){
+   console.log('submiting changes');
+   var data = $('form.active').serializeArray();
+   data.push( {name:'id', value: $('form.active').attr('data-id') } );
+   $.post( site_url+'/ajax/mod/', data , function( response ){
+      // Update view
+      var id = response[0].sn;
+      var $row = $('tr#' + id );
+      $row.find('.col-name').text( response[0].name );
+      $row.find('.col-sub').text( response[0].sub );
+      $row.find('.vol').text( response[0].vol );
+      $row.find('.buy').text( response[0].buy );
+
+      // Close dialog
+      $('#dialog-edit').modal('hide');
+   }, 'json' )
+   .error( function( data ){
+      console.log('data update failed');
+      console.log(data);
+   } );
+});
