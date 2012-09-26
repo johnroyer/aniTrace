@@ -127,6 +127,11 @@ $('.modal').on('hide', function(){
       $(this).find('form.active').removeClass('active');
 });
 
+// Remove text in the form
+$('#dialog-addAni').on('show', function(){
+      $('#dialog-addAni').find('input').attr('value', '');
+});
+
 // Adding events to modal 'dialog-edit'
 $('#dialog-edit').on('show', function(){
       var $this = $(this);
