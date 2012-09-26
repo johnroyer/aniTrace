@@ -69,6 +69,10 @@ class Admin extends CI_Controller
             $info = $this->_getUserInfo($id);
             if( $info != NULL ){
                if($confirm == 'confirmed'){
+                  // Delete user data first
+                  $this->db->where('user_id', $id);
+                  $this->db->delete('list', array('user_id'=>$id) );
+
                   // Delete User
                   $this->ion_auth->delete_user($id);
                   redirect('admin/');

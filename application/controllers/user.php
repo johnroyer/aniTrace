@@ -90,7 +90,6 @@ class User extends CI_Controller {
          $valid = $this->form_validation->run();
          if( $valid == true ){
             // Email is valid
-
             if( $password == $password2 ){
                // Password confirmed
                $result = $this->ion_auth->register($username, $password, $email, $profile, '');
@@ -103,7 +102,7 @@ class User extends CI_Controller {
                      'type' => 'success',
                      'title' => 'Welcome',
                      'text' => 'Register complete. You can use the service now. Have fun!',
-                     'return' => site_url('user/')
+                     'return' => site_url('ani/')
                   );
                   $this->load->view('alert', $data);
                }else{
