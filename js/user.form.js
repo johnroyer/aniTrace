@@ -19,7 +19,7 @@ $('.register #username').blur( function(){
       checkStatReset('#username-group');
 
       $.ajax( {
-         url: site_url + '/user/checkUsername/' + username,
+         url: site_url + '/auth/checkUsername/' + username,
          dataType: 'json',
          error: function(){ console.log('error'); },
          success: function(response){
@@ -58,7 +58,7 @@ $('.register #email').blur( function(){
       checkStatReset('#email-group');
 
       $.ajax( {
-         url: site_url + '/user/checkemail/' + encodeURIComponent(email),
+         url: site_url + '/auth/checkemail/' + encodeURIComponent(email),
          dataType: 'json',
          error: function(){ console.log('error'); },
          success: function(response){
