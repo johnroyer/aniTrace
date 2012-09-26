@@ -12,10 +12,7 @@ class User extends CI_Controller {
 	public function index()
 	{
       if( $this->ion_auth->logged_in() == true ){
-         $data['page_title'] = 'File List';
-         $data['loggedin'] = true;
-         $data['user'] = $this->_getUserInfo();
-         $this->load->view('user/list', $data);
+         redirect('ani/');
       }else{
          $data = array(
             'page_title' => 'Login',
