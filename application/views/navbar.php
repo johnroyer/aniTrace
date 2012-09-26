@@ -18,7 +18,7 @@
                   </a>
 
                   <ul class="dropdown-menu">
-                     <li><a href="<?php echo site_url('user/logout/'); ?>">登出</a></li>
+                     <li><a href="<?php echo site_url('auth/logout/'); ?>">登出</a></li>
                   </ul>
 
                </li>
@@ -26,8 +26,8 @@
 
 <?php else: ?>
             <ul class="nav pull-right" >
-            <li><a href="<?php echo site_url('user/'); ?>">註冊</a></li>
-            <li><a href="<?php echo site_url('user/'); ?>">登入</a></li>
+            <li><a href="<?php echo site_url('auth/'); ?>">註冊</a></li>
+            <li><a href="<?php echo site_url('auth/'); ?>">登入</a></li>
             </ul>
 <?php endif; ?>
       </div>
