@@ -31,7 +31,7 @@ function renewTable( list ){
       }
       var $link = $currRow.find(' > td > a.deleteUser');
       $link.attr('href', $link.attr('href') + '/' + list[index]['id'] );
-      var $link = $currRow.find(' > td > a.editUser');
-      $link.attr('href', $link.attr('href') + '/' + list[index]['id'] );
+      //var $link = $currRow.find(' > td > a.editUser');
+      //$link.attr('href', $link.attr('href') + '/' + list[index]['id'] );
    }
 }
