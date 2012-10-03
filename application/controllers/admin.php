@@ -58,7 +58,7 @@ class Admin extends CI_Controller
          $data['loggedin'] = true;
          $data['user'] =  $this->_getUserInfo();
 
-         $data['error_title'] = 'Can NOT Delete Yourself';
+         $data['error_title'] = '無法刪除自己的帳號';
          $data['error_detail'] = ' ';
 
          $this->load->view('admin/delete_error', $data);
