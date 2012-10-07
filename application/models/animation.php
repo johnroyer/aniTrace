@@ -19,10 +19,16 @@ class Animation extends CI_Model
       $this->uid = $uid;
    }
 
-   public function getList()
+   public function getList($all = 0)
    {
       $this->db->order_by('sn', 'asc');
       $this->db->where('user_id', $this->uid);
+      if( $all == 0 ){
+        $this->db->where('(
+               (`buy` = 0 and `vol` = 0)
+            or (`buy` > `vol` or `finished` = 0)
+        )');
+      }
       return $this->db->get('list')->result_array();
    }
 
