@@ -107,3 +107,8 @@ body {
 .modal.fade {
    top: 50%;
 }
+
+/* Highlight when animation marked as finished */
+.finished {
+   color: #15AD15;
+}
