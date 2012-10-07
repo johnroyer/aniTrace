@@ -21,6 +21,9 @@ function getAniList( ) {
          $('td.col-vol > div > i.icon-minus').click( function(){ volClicked('down', $(this) ); } );
          $('td.col-buy > div > i.icon-plus').click( function(){ buyClicked('up', $(this) ); } );
          $('td.col-buy > div > i.icon-minus').click( function(){ buyClicked('down', $(this) ); } );
+
+         // Bind event for finish button
+         $('i.icon-ok').click( function(){ markFinished( $(this) ); });
       }
    } );
 }
@@ -51,6 +54,19 @@ function req( data ) {
          error: function(){ console.log( data.errorMsg ) },
          success: data.onSuccess
       } );
+   }
+}
+
+function markFinished( $clicked ){
+   var id = $clicked.parent().parent().attr('id');
+   if( $clicked.hasClass('finished') ){
+      // Mark as unfinished
+      console.log( id + ' unfinished' );
+      $clicked.removeClass('finished');
+   }else{
+      // Mark as Finished
+      console.log( id + ' finished' );
+      $clicked.addClass('finished');
    }
 }
 
@@ -166,6 +182,9 @@ $('#submit-new-animation').click( function(){
             $('td.col-vol > div > i.icon-minus').click( function(){ volClicked('down', $(this) ); } );
             $('td.col-buy > div > i.icon-plus').click( function(){ buyClicked('up', $(this) ); } );
             $('td.col-buy > div > i.icon-minus').click( function(){ buyClicked('down', $(this) ); } );
+
+            // Bind event for finish button
+            $('i.icon-ok').click( function(){ markFinished( $(this) ); });
 
             // Close dialog
             $('#dialog-addAni').modal('hide');
