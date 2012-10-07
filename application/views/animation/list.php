@@ -40,7 +40,7 @@
                </div>
             </td>
             <td class="col-act"> 
-               <i class="act-edit act-icon icon-edit" data-toggle="form-modal" data-target="#dialog-edit" data-id=""></i>
+               <i class="act-edit act-icon icon-edit" title="修改" data-toggle="form-modal" data-target="#dialog-edit" data-id=""></i>
             </td>
          </tr>
 
