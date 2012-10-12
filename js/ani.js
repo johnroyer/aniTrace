@@ -59,15 +59,17 @@ function req( data ) {
 
 function markFinished( $clicked ){
    var id = $clicked.parent().parent().attr('id');
-   if( $clicked.hasClass('finished') ){
-      // Mark as unfinished
-      console.log( id + ' unfinished' );
-      $clicked.removeClass('finished');
-   }else{
-      // Mark as Finished
-      console.log( id + ' finished' );
-      $clicked.addClass('finished');
-   }
+   $.get( site_url + '/ajax/finished/' + id ,
+      function( response ){
+         response = response[0];
+         if( response.finished == 1 ){
+            $('tr#' + response.sn).find('i.icon-ok').addClass('finished');
+            console.log('Marked as finished');
+         }else{
+            $('tr#' + response.sn).find('i.icon-ok').removeClass('finished');
+            console.log('Marked as unfinished');
+         }
+      }, 'json' )
 }
 
 function volClicked( act, $clicked ) {
