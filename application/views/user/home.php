@@ -6,7 +6,7 @@
 
    <div class="span6">
       <h2>登入</h2>
-      <form class="well login" action="<?php echo site_url('user/login/'); ?>" method="post" accept-charset="utf-8">
+      <form class="well login" action="<?php echo site_url('auth/login/'); ?>" method="post" accept-charset="utf-8">
          <label for="username">帳號：</label>
          <input class="span3 " type="text" name="username" placeholder="longin id" autofocus>
          
@@ -27,7 +27,7 @@
 
    <div class="span6">
       <h2>註冊</h2>
-      <form class="well register" action="<?php echo site_url('user/register/'); ?>" method="post" accept-charset="utf-8">
+      <form class="well register" action="<?php echo site_url('auth/register/'); ?>" method="post" accept-charset="utf-8">
          <div class="control-group" id="username-group">
             <label for="username" class="control-label">帳號：</label>
             <div id="" class="controls">
