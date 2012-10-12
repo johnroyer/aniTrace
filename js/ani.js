@@ -38,6 +38,8 @@ function renewList( response ){
          var result = $.tmpl( tmpl, response[aniId] )
             .appendTo('#ani-list > tbody > tr:last');
          $('#ani-list > tbody > tr:last > td.col-act > .act-edit').attr('data-id', response[aniId]['sn'] );
+         if( response[aniId].finished == 1 )
+            $('#ani-list > tbody > tr:last').find('i.icon-ok').addClass('finished');
       }
    }else{
       $('<tr><td colspan="5"></td></tr>').insertAfter('#ani-list > tbody > tr:last');
