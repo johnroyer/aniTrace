@@ -27,19 +27,19 @@
             <td class="col-sub">${sub}</td>
             <td class="col-vol">
                <div class="vol">${vol}</div>
-               <div class="vol-act">
+               <div class="vol-act unselectable">
                   <i class="icon-plus"></i>
                   <i class="icon-minus"></i>
                </div>
             </td>
             <td class="col-buy">
                <div class="buy">${buy}</div>
-               <div class="buy-act">
+               <div class="buy-act unselectable">
                   <i class="icon-plus"></i>
                   <i class="icon-minus"></i>
                </div>
             </td>
-            <td class="col-act"> 
+            <td class="col-act unselectable"> 
                <i class="act-edit act-icon icon-edit" title="修改" data-toggle="form-modal" data-target="#dialog-edit" data-id=""></i>
                <i class="act-icon icon-ok" title="標示為「完結」，閱必後自動隱藏"></i>
             </td>
