@@ -107,3 +107,14 @@ body {
 .modal.fade {
    top: 50%;
 }
+
+/* Highlight when animation marked as finished */
+.finished {
+   color: #15AD15;
+}
+
+.unselectable {
+   -moz-user-select: none;
+   -webkit-user-select: none;
+   -ms-user-select: none;
+}

@@ -4,7 +4,7 @@
    $this->load->helper('url');  
 ?>
 
-   <h2>Hello, <?php echo $user['username']; ?></h2>
+   <h2>哈囉， <?php echo $user['username']; ?></h2>
 
    <p id="list-control">
       <a id="act-add" class="btn btn-primary" href="#dialog-addAni" data-toggle="form-modal"><i class="icon-plus"></i> 新增</a>
@@ -27,21 +27,21 @@
             <td class="col-sub">${sub}</td>
             <td class="col-vol">
                <div class="vol">${vol}</div>
-               <div class="vol-act">
+               <div class="vol-act unselectable">
                   <i class="icon-plus"></i>
                   <i class="icon-minus"></i>
                </div>
             </td>
             <td class="col-buy">
                <div class="buy">${buy}</div>
-               <div class="buy-act">
+               <div class="buy-act unselectable">
                   <i class="icon-plus"></i>
                   <i class="icon-minus"></i>
                </div>
             </td>
-            <td class="col-act"> 
-               <i class="act-edit act-icon icon-edit" data-toggle="form-modal" data-target="#dialog-edit" data-id=""></i>
-               <i class="act-delete act-icon icon-trash"></i>
+            <td class="col-act unselectable"> 
+               <i class="act-edit act-icon icon-edit" title="修改" data-toggle="form-modal" data-target="#dialog-edit" data-id=""></i>
+               <i class="act-icon icon-ok" title="標示為「完結」，閱必後自動隱藏"></i>
             </td>
          </tr>
 
@@ -107,7 +107,7 @@
          </div>
 
          <div class="form-actions">
-            <a class="btn btn-primary" href="#" onClick="">新增</a>
+            <a class="btn btn-primary" id="submit-animation-change" href="#">修改</a>
             <a class="btn" href="#" data-dismiss="modal" aria-hidden="true">取消</a>
          </div>
       </form>

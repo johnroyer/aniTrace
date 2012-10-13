@@ -9,7 +9,7 @@
 
    <p>ID: <?php echo $info['id']; ?> </p>
 
-   <p>Username: <?php echo $info['username']; ?> </p>
+   <p>帳號： <?php echo $info['username']; ?> </p>
 
    <p>Email: <?php echo $info['email']; ?> </p>
 

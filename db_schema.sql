@@ -54,6 +54,9 @@ CREATE TABLE `list` (
   `sub` varchar(200) DEFAULT NULL,
   `vol` int(12) NOT NULL,
   `buy` int(12) NOT NULL,
+  `finished` int(1) NOT NULL DEFAULT '0',
+  `link` varchar(1024) DEFAULT NULL,
+  `public` int(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`sn`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;

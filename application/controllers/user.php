@@ -12,13 +12,10 @@ class User extends CI_Controller {
 	public function index()
 	{
       if( $this->ion_auth->logged_in() == true ){
-         $data['page_title'] = 'File List';
-         $data['loggedin'] = true;
-         $data['user'] = $this->_getUserInfo();
-         $this->load->view('user/list', $data);
+         redirect('ani/');
       }else{
          $data = array(
-            'page_title' => 'Login',
+            'page_title' => '登入',
             'loggedin' => false
          );
          $this->load->view('user/home', $data);
@@ -42,18 +39,18 @@ class User extends CI_Controller {
       if( $this->ion_auth->login($username, $password, $remember) == true ){
          // Login success
          $data = array(
-            'page_title' => 'Project List',
+            'page_title' => '追蹤清單',
             'loggedin' => true
          );
          redirect('ani/');
       }else{
          // Login Failed
-         $data['page_title'] = 'Login';
+         $data['page_title'] = '登入';
          $data['loggedin'] = false;
          $data['alert'] = array(
             'type' => '',
-            'title' => 'Login Failed',
-            'text' => 'Please check your username, password and retry.',
+            'title' => '登入失敗',
+            'text' => '請檢查您輸入的帳號、密碼，再重試一次。',
             'return' => site_url('user/')
          );
          $this->load->view('alert', $data);
@@ -90,66 +87,65 @@ class User extends CI_Controller {
          $valid = $this->form_validation->run();
          if( $valid == true ){
             // Email is valid
-
             if( $password == $password2 ){
                // Password confirmed
                $result = $this->ion_auth->register($username, $password, $email, $profile, '');
                if( $result == true ){
                   $this->ion_auth->login($username, $password);
-                  $data['page_title'] = 'Register';
+                  $data['page_title'] = '註冊';
                   $data['loggedin'] = true;
                   $data['user'] = $this->_getUserInfo();
                   $data['alert'] = array(
                      'type' => 'success',
-                     'title' => 'Welcome',
-                     'text' => 'Register complete. You can use the service now. Have fun!',
-                     'return' => site_url('user/')
+                     'title' => '歡迎',
+                     'text' => '註冊成功，祝您使用愉快！',
+                     'return' => site_url('ani/')
                   );
                   $this->load->view('alert', $data);
                }else{
                   // ion_auth identity check failed
-                  $data['page_title'] = 'Register';
+                  $data['page_title'] = '註冊';
                   $data['loggedin'] = false;
                   $data['alert'] = array(
                      'type' => 'warning',
-                     'title' => 'Register Failed',
-                     'text' => 'Username and email maybe used. Check and try again.',
+                     'title' => '註冊失敗',
+                     'text' => '帳號或 email 已被使用，請嘗試其他帳號註冊。',
                      'return' => site_url('user/')
                   );
                   $this->load->view('alert', $data);
                }
             }else{
                // Two password do not match
-               $data['page_title'] = 'Register';
+               $data['page_title'] = '註冊';
                $data['loggedin'] = false;
                $data['alert'] = array(
                   'type' => 'error',
-                  'title' => 'Password Not Match',
-                  'text' => 'The two password you\'ve entered are not the same. Please check again.',
+                  'title' => '密碼不符',
+                  'text' => '兩次輸入的密碼部相同，請重新輸入。',
                   'return' => ''
                );
                $this->load->view('alert', $data);
             }
          }else{
             // Email is not Valid
-            $data['page_title'] = 'Register';
+            $data['page_title'] = '註冊';
             $data['loggedin'] = false;
             $data['alert'] = array(
                   'type' => 'warning',
-                  'title' => 'Invalid Email',
-                  'text' => 'Email is not valid. Please enter an usable email.',
+                  'title' => 'Email 不正確',
+                  'text' => 'Email 格式不正確，請重新輸入。',
                   'return' => site_url('user/')
                   );
             $this->load->view('alert', $data);
          }
       }else{
          // Email has been used
-         $data['page_title'] = 'Register';
+         $data['page_title'] = '註冊';
          $data['loggedin'] = false;
          $data['alert'] = array(
                'type' => 'info',
-               'title' => 'Email has been used',
-               'text' => 'This email has been used. Please use another email to register.',
+               'title' => 'Email 已被使用',
+               'text' => '您所輸入的 email 已被使用，請使用其他 email 註冊。',
                'return' => site_url('user/')
                );
          $this->load->view('alert', $data);

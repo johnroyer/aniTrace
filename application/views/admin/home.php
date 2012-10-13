@@ -36,7 +36,7 @@
                <td class="row-username"></td>
                <td class="row-email"></td>
                <td class="row-action">
-                  <a href="<?php echo site_url('admin/deleteUser/'); ?>" class="action-link deleteUser"><i class="icon-trash action-icon"></i>Delete</a>
+                  <a href="<?php echo site_url('admin/deleteUser/'); ?>" class="action-link deleteUser"><i class="icon-trash action-icon"></i>刪除</a>
                </td>
             </tr>
 
@@ -46,7 +46,7 @@
                   <td><?php echo $u->username; ?></td>
                   <td><?php echo $u->email; ?></td>
                   <td>
-                     <a href="<?php echo site_url('admin/deleteUser/'.$u->id); ?>" class="action-link"><i class="icon-trash action act-icon"></i>Delete</a>
+                     <a href="<?php echo site_url('admin/deleteUser/'.$u->id); ?>" class="action-link"><i class="icon-trash action-icon"></i> 刪除</a>
                   </td>
                </tr>
             <?php endforeach; ?>
