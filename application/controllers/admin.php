@@ -40,7 +40,7 @@ class Admin extends CI_Controller
       $data['users'] = $users;
       $data['page_title'] = 'User Admin';
       $data['loggedin'] = true;
-      $this->load->view('admin/home', $data);
+      $this->load->view('admin/list', $data);
    }
 
    public function deleteUser($id=-1, $confirm='')

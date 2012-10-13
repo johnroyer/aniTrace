@@ -8,8 +8,8 @@
 <div class="tabbable">
 
    <ul class="nav nav-tabs ">
-      <li class="<?php echo $tab_general; ?>"><a href="<?php echo site_url('admin/'); ?>">一般</a></li>
-      <li class="<?php echo $tab_admin; ?>"><a href="<?php echo site_url('admin/superuser'); ?>">管理員</a></li>
+      <li class="<?php echo $tab_general; ?>"><a href="<?php echo site_url('admin/userList'); ?>">一般</a></li>
+      <li class="<?php echo $tab_admin; ?>"><a href="<?php echo site_url('admin/userList/admin'); ?>">管理員</a></li>
       <li>
          <form class="form-search admin-tabs-search" action="#" method="post" accept-charset="utf-8">
          <i class="icon-search admin-tabs-search-icon"></i>
