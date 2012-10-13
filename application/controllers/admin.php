@@ -18,32 +18,28 @@ class Admin extends CI_Controller
       }
    }
 
-   public function index()
+   public function index($type='')
    {
-      $data['page_title'] = 'User Admin';
-      $data['loggedin'] = true;
-
-      $users = $this->ion_auth->users()->result();
-
-      $data['user'] =  $this->_getUserInfo();
-      $data['users'] = $users;
-      $data['tab_general'] = 'active';
-      $data['tab_admin'] = '';
-      $this->load->view('admin/home', $data);
+      redirect('admin/userList/');
    }
 
-   public function superuser()
+   public function userList($type='')
    {
-      $data['page_title'] = 'User Admin';
-      $data['loggedin'] = true;
-
-      // List all admins (group id = 1)
-      $users = $this->ion_auth->users( array('1') )->result();
-
+      if( $type == '' ){ 
+         // General users
+         $users = $this->ion_auth->users()->result();
+         $data['tab_general'] = 'active';
+         $data['tab_admin'] = '';
+      }else{
+         // List all admins (group id = 1)
+         $users = $this->ion_auth->users( array('1') )->result();
+         $data['tab_general'] = '';
+         $data['tab_admin'] = 'active';
+      }
       $data['user'] =  $this->_getUserInfo();
       $data['users'] = $users;
-      $data['tab_general'] = '';
-      $data['tab_admin'] = 'active';
+      $data['page_title'] = 'User Admin';
+      $data['loggedin'] = true;
       $this->load->view('admin/home', $data);
    }
 
