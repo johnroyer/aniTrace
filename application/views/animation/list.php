@@ -3,9 +3,6 @@
    $this->load->view('navbar'); 
    $this->load->helper('url');  
 ?>
-
-   <h2>哈囉， <?php echo $user['username']; ?></h2>
-
    <p id="list-control">
       <a id="act-add" class="btn btn-primary" href="#dialog-addAni" data-toggle="form-modal"><i class="icon-plus"></i> 新增</a>
    </p>
