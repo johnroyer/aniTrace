@@ -2,13 +2,14 @@
 
 class Admin extends CI_Controller
 {
+   private $user;
    
    function __construct( )
    {
       parent::__construct();
       $this->load->helper('url');
       $this->load->spark('ion_auth/2.2.4');
-      $user = $this->_getUserInfo();
+      $this->user = $this->_getUserInfo();
       if( $this->ion_auth->logged_in() == TRUE ){
          $user = $this->_getUserInfo();
          if( $user['isAdmin'] == FALSE )
@@ -25,7 +26,7 @@ class Admin extends CI_Controller
 
       $users = $this->ion_auth->users()->result();
 
-      $data['user'] =  $this->_getUserInfo();
+      $data['user'] =  $this->user;
       $data['users'] = $users;
       $data['tab_general'] = 'active';
       $data['tab_admin'] = '';
@@ -159,8 +160,8 @@ class Admin extends CI_Controller
             $isAdmin = true;
       }
       $user =  array(
-         'sn' => $info->id ,
-         'id' => $info->username,
+         'id' => $info->id ,
+         'username' => $info->username,
          'email' => $info->email,
          'groups' => $list,
          'isAdmin' => $isAdmin
