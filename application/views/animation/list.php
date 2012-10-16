@@ -3,9 +3,6 @@
    $this->load->view('navbar'); 
    $this->load->helper('url');  
 ?>
-
-   <h2>哈囉， <?php echo $user['username']; ?></h2>
-
    <p id="list-control">
       <a id="act-add" class="btn btn-primary" href="#dialog-addAni" data-toggle="form-modal"><i class="icon-plus"></i> 新增</a>
    </p>
@@ -25,22 +22,23 @@
          <tr id="row-template">
             <td class="col-name">${name}</td>
             <td class="col-sub">${sub}</td>
-            <td class="col-vol">
+            <td class="col-vol unselectable">
                <div class="vol">${vol}</div>
                <div class="vol-act">
                   <i class="icon-plus"></i>
                   <i class="icon-minus"></i>
                </div>
             </td>
-            <td class="col-buy">
+            <td class="col-buy unselectable">
                <div class="buy">${buy}</div>
                <div class="buy-act">
                   <i class="icon-plus"></i>
                   <i class="icon-minus"></i>
                </div>
             </td>
-            <td class="col-act"> 
-               <i class="act-edit act-icon icon-edit" data-toggle="form-modal" data-target="#dialog-edit" data-id=""></i>
+            <td class="col-act unselectable"> 
+               <i class="act-edit act-icon icon-edit" title="修改" data-toggle="form-modal" data-target="#dialog-edit" data-id=""></i>
+               <i class="act-icon icon-ok" title="標示為「完結」，閱必後自動隱藏"></i>
             </td>
          </tr>
 

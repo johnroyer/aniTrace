@@ -13,7 +13,7 @@
                <li class="dropdown">
                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   <i class="icon-user icon-white"></i>
-                  帳號
+                  <?php echo $user['username']; ?>
                   <i class="caret"></i>
                   </a>
 

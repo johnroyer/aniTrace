@@ -21,6 +21,9 @@ function getAniList( ) {
          $('td.col-vol > div > i.icon-minus').click( function(){ volClicked('down', $(this) ); } );
          $('td.col-buy > div > i.icon-plus').click( function(){ buyClicked('up', $(this) ); } );
          $('td.col-buy > div > i.icon-minus').click( function(){ buyClicked('down', $(this) ); } );
+
+         // Bind event for finish button
+         $('i.icon-ok').click( function(){ markFinished( $(this) ); });
       }
    } );
 }
@@ -35,6 +38,8 @@ function renewList( response ){
          var result = $.tmpl( tmpl, response[aniId] )
             .appendTo('#ani-list > tbody > tr:last');
          $('#ani-list > tbody > tr:last > td.col-act > .act-edit').attr('data-id', response[aniId]['sn'] );
+         if( response[aniId].finished == 1 )
+            $('#ani-list > tbody > tr:last').find('i.icon-ok').addClass('finished');
       }
    }else{
       $('<tr><td colspan="5"></td></tr>').insertAfter('#ani-list > tbody > tr:last');
@@ -52,6 +57,21 @@ function req( data ) {
          success: data.onSuccess
       } );
    }
+}
+
+function markFinished( $clicked ){
+   var id = $clicked.parent().parent().attr('id');
+   $.get( site_url + '/ajax/finished/' + id ,
+      function( response ){
+         response = response[0];
+         if( response.finished == 1 ){
+            $('tr#' + response.sn).find('i.icon-ok').addClass('finished');
+            console.log('Marked as finished');
+         }else{
+            $('tr#' + response.sn).find('i.icon-ok').removeClass('finished');
+            console.log('Marked as unfinished');
+         }
+      }, 'json' )
 }
 
 function volClicked( act, $clicked ) {
@@ -166,6 +186,9 @@ $('#submit-new-animation').click( function(){
             $('td.col-vol > div > i.icon-minus').click( function(){ volClicked('down', $(this) ); } );
             $('td.col-buy > div > i.icon-plus').click( function(){ buyClicked('up', $(this) ); } );
             $('td.col-buy > div > i.icon-minus').click( function(){ buyClicked('down', $(this) ); } );
+
+            // Bind event for finish button
+            $('i.icon-ok').click( function(){ markFinished( $(this) ); });
 
             // Close dialog
             $('#dialog-addAni').modal('hide');

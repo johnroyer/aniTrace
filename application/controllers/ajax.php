@@ -84,6 +84,14 @@ class Ajax extends CI_Controller
       }
    }
 
+   public function finished($aniId = 0)
+   {
+      if( $aniId != 0 ){
+         $this->animation->setFinished($aniId);
+         echo json_encode( $this->animation->getRow($aniId) );
+      }
+   }
+
    private function _getUserInfo($id=NULL)
    {
       $info = $this->ion_auth->user($id)->row();

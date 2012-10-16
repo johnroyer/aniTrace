@@ -19,10 +19,16 @@ class Animation extends CI_Model
       $this->uid = $uid;
    }
 
-   public function getList()
+   public function getList($all = 0)
    {
       $this->db->order_by('sn', 'asc');
       $this->db->where('user_id', $this->uid);
+      if( $all == 0 ){
+        $this->db->where('(
+               (`buy` = 0 and `vol` = 0)
+            or (`buy` > `vol` or `finished` = 0)
+        )');
+      }
       return $this->db->get('list')->result_array();
    }
 
@@ -48,6 +54,12 @@ class Animation extends CI_Model
    {
       $result = $this->getRow($aniId);
       return $result[0]['buy'];
+   }
+
+   public function getFinished($aniId)
+   {
+      $result = $this->getRow($aniId);
+      return $result[0]['finished'];
    }
 
    public function getRow($aniId)
@@ -112,6 +124,16 @@ class Animation extends CI_Model
       $this->db->where('sn', $aniId);
       $this->db->where('user_id', $this->uid);
       return $this->db->update('list', array('buy' => $vol) );
+   }
+
+   public function setFinished($aniId)
+   {
+      $finished = $this->getFinished($aniId);
+      $finished = ( $finished + 1 ) % 2;  // Swap between 0 and 1
+      $this->db->where('user_id', $this->uid);
+      $this->db->where('sn', $aniId);
+      $this->db->update('list', array('finished' => $finished) );
+      return $finished;
    }
 
    public function buyDown($aniId)
