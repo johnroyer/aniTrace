@@ -222,6 +222,7 @@ $('#submit-animation-change').click( function(){
          $row.find('.link > a').attr('href', response[0].link);
          $row.find('.link').removeClass('hide');
       }else{
+         $row.find('.link > a').attr('href', '');
          $row.find('.link').addClass('hide');
       }
 
