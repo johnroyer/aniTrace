@@ -20,7 +20,10 @@
 
       <tbody>
          <tr id="row-template">
-            <td class="col-name">${name}</td>
+            <td class="col-name">
+               <div class="name">${name}</div>
+               <div class="link"><a href="${link}"><i class="icon-link"></i></a></div>
+            </td>
             <td class="col-sub">${sub}</td>
             <td class="col-vol unselectable">
                <div class="vol">${vol}</div>

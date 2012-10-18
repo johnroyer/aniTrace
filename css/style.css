@@ -46,6 +46,11 @@ body {
    display: none;
 }
 
+.name, .link {
+   float: left;
+   margin-right: 8px;
+}
+
 .vol, .buy {
    font-size: 24px;;
    margin-right: 30px;
