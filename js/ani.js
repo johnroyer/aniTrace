@@ -187,7 +187,14 @@ $('#submit-new-animation').click( function(){
             .insertAfter('#ani-list > tbody > tr:last');
             var result = $.tmpl( tmpl, response[0] )
             .appendTo('#ani-list > tbody > tr:last');
-            $('#ani-list > tbody > tr:last > td.col-act > .act-edit').attr('data-id', response[0].sn );
+            $row = $('#ani-list > tbody > tr:last');
+
+            $row.find('td.col-act > .act-edit').attr('data-id', response[0].sn );
+
+            if( response[0].link != null && response[0].link != '' ){
+               $row.find('.link > a').attr('href', response[0].link);
+               $row.find('.link').removeClass('hide');
+            }
             
             // Bind clicked event to icons
             $('td.col-vol > div > i.icon-plus').click( function(){ volClicked('up', $(this) ); } );
