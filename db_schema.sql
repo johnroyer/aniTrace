@@ -55,7 +55,7 @@ CREATE TABLE `list` (
   `vol` int(12) NOT NULL,
   `buy` int(12) NOT NULL,
   `finished` int(1) NOT NULL DEFAULT '0',
-  `link` varchar(1024) DEFAULT NULL,
+  `link` varchar(10240) DEFAULT NULL,
   `public` int(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`sn`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
