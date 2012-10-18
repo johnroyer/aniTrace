@@ -163,7 +163,7 @@ $('#dialog-edit').on('show', function(){
       var $this = $(this);
       var aniId = $this.find('> form').attr('data-id');
       var $targetRow = $('#ani-list > tbody > tr#' + aniId);
-      var name = $targetRow.find('> td.col-name').text();
+      var name = $targetRow.find('.name').text();
       var link = $targetRow.find('.link > a').attr('href');
       var sub = $targetRow.find('> td.col-sub').text();
       var vol = $targetRow.find('> td.col-vol > div.vol').text();
@@ -213,10 +213,17 @@ $('#submit-animation-change').click( function(){
       // Update view
       var id = response[0].sn;
       var $row = $('tr#' + id );
-      $row.find('.col-name').text( response[0].name );
+      $row.find('.name').text( response[0].name );
       $row.find('.col-sub').text( response[0].sub );
       $row.find('.vol').text( response[0].vol );
       $row.find('.buy').text( response[0].buy );
+      
+      if( response[0].link != null && response[0].link != '' ){
+         $row.find('.link > a').attr('href', response[0].link);
+         $row.find('.link').removeClass('hide');
+      }else{
+         $row.find('.link').addClass('hide');
+      }
 
       // Close dialog
       $('#dialog-edit').modal('hide');
