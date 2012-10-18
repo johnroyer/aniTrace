@@ -164,10 +164,12 @@ $('#dialog-edit').on('show', function(){
       var aniId = $this.find('> form').attr('data-id');
       var $targetRow = $('#ani-list > tbody > tr#' + aniId);
       var name = $targetRow.find('> td.col-name').text();
+      var link = $targetRow.find('.link > a').attr('href');
       var sub = $targetRow.find('> td.col-sub').text();
       var vol = $targetRow.find('> td.col-vol > div.vol').text();
       var buy = $targetRow.find('> td.col-buy > div.buy').text();
       $this.find('#ani-name').val( name );
+      $this.find('#ani-link').val( link );
       $this.find('#ani-sub').val( sub );
       $this.find('#ani-vol').val( vol );
       $this.find('#ani-buy').val( buy );
