@@ -53,8 +53,9 @@ class Ajax extends CI_Controller
    {
       $name = $this->input->post('name', true);
       $sub = $this->input->post('sub', true);
+      $link = $this->input->post('link', true);
       if( $name != '' ){
-         $id = $this->animation->newAni($name, $sub);
+         $id = $this->animation->newAni($name, $sub, $link);
          $data = $this->animation->getRow($id);
          unset( $data['user_id'] );
          echo json_encode( $data );

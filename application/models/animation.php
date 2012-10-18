@@ -152,14 +152,15 @@ class Animation extends CI_Model
       $this->setBuy($aniId, $this->getBuy($aniId) + 1 );
    }
 
-   public function newAni($name, $sub)
+   public function newAni($name, $sub='', $link='')
    {
       $data = array(
          'user_id' => $this->uid,
          'name' => $name,
          'sub' => $sub,
          'vol' => 0,
-         'buy' => 0
+         'buy' => 0,
+         'link' => $link
       );
       $this->db->insert('list', $data);
       return $this->db->insert_id();

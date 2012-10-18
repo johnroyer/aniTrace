@@ -57,6 +57,13 @@
          </div>
 
          <div class="control-group">
+            <label class="control-label" for="sub">相關網址</label>
+            <div class="controls">
+               <input type="text" name="link" value="" placeholder="http://">
+            </div>
+         </div>
+
+         <div class="control-group">
             <label class="control-label" for="sub">字幕組</label>
             <div class="controls">
                <input type="text" name="sub" value="">
