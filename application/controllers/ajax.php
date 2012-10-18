@@ -71,8 +71,9 @@ class Ajax extends CI_Controller
       $sub = $this->input->post('sub', true);
       $vol = $this->input->post('vol', true);
       $buy = $this->input->post('buy', true);
+      $link = $this->input->post('link', true);
       if( $id != false || $id != '' ){
-         $result = $this->animation->setAni($id, $name, $sub, $vol, $buy);
+         $result = $this->animation->setAni($id, $name, $sub, $vol, $buy, $link);
          if( $result ){
             $data = $this->animation->getRow($id);
             unset( $data['user_id'] );
