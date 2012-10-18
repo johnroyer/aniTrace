@@ -22,7 +22,7 @@
          <tr id="row-template">
             <td class="col-name">
                <div class="name">${name}</div>
-               <div class="link hide"><a href="${link}"><i class="icon-link"></i></a></div>
+               <div class="link hide"><a href="${link}" target="_blank"><i class="icon-link"></i></a></div>
             </td>
             <td class="col-sub">${sub}</td>
             <td class="col-vol unselectable">
