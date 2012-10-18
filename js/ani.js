@@ -44,7 +44,7 @@ function renewList( response ){
          if( response[aniId].finished == 1 )
             $currRow.find('i.icon-ok').addClass('finished');
 
-         if( response[aniId].link != null )
+         if( response[aniId].link != null && response[aniId].link != '' )
             $currRow.find('div.link').removeClass('hide');
       }
    }else{
