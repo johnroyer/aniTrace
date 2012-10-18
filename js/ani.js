@@ -37,9 +37,15 @@ function renewList( response ){
             .insertAfter('#ani-list > tbody > tr:last');
          var result = $.tmpl( tmpl, response[aniId] )
             .appendTo('#ani-list > tbody > tr:last');
-         $('#ani-list > tbody > tr:last > td.col-act > .act-edit').attr('data-id', response[aniId]['sn'] );
+         var $currRow = $('#ani-list > tbody > tr:last');
+
+         $currRow.find('td.col-act > .act-edit').attr('data-id', response[aniId]['sn'] );
+
          if( response[aniId].finished == 1 )
-            $('#ani-list > tbody > tr:last').find('i.icon-ok').addClass('finished');
+            $currRow.find('i.icon-ok').addClass('finished');
+
+         if( response[aniId].link != null )
+            $currRow.find('div.link').removeClass('hide');
       }
    }else{
       $('<tr><td colspan="5"></td></tr>').insertAfter('#ani-list > tbody > tr:last');
