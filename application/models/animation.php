@@ -71,7 +71,7 @@ class Animation extends CI_Model
       return $this->db->get('list')->result_array();
    }
 
-   public function setAni($aniId, $name, $sub, $vol, $buy)
+   public function setAni($aniId, $name='', $sub='', $vol=0, $buy=0, $link='')
    {
       $vol = intval( $vol );
       $buy = intval( $buy );
@@ -83,7 +83,8 @@ class Animation extends CI_Model
          'name' => $name,
          'sub' => $sub,
          'vol' => $vol,
-         'buy' => $buy
+         'buy' => $buy,
+         'link' => $link
       );
       return $this->db->update('list', $data );
    }
@@ -152,14 +153,15 @@ class Animation extends CI_Model
       $this->setBuy($aniId, $this->getBuy($aniId) + 1 );
    }
 
-   public function newAni($name, $sub)
+   public function newAni($name, $sub='', $link='')
    {
       $data = array(
          'user_id' => $this->uid,
          'name' => $name,
          'sub' => $sub,
          'vol' => 0,
-         'buy' => 0
+         'buy' => 0,
+         'link' => $link
       );
       $this->db->insert('list', $data);
       return $this->db->insert_id();

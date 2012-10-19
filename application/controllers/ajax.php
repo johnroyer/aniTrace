@@ -53,8 +53,9 @@ class Ajax extends CI_Controller
    {
       $name = $this->input->post('name', true);
       $sub = $this->input->post('sub', true);
+      $link = $this->input->post('link', true);
       if( $name != '' ){
-         $id = $this->animation->newAni($name, $sub);
+         $id = $this->animation->newAni($name, $sub, $link);
          $data = $this->animation->getRow($id);
          unset( $data['user_id'] );
          echo json_encode( $data );
@@ -70,8 +71,9 @@ class Ajax extends CI_Controller
       $sub = $this->input->post('sub', true);
       $vol = $this->input->post('vol', true);
       $buy = $this->input->post('buy', true);
+      $link = $this->input->post('link', true);
       if( $id != false || $id != '' ){
-         $result = $this->animation->setAni($id, $name, $sub, $vol, $buy);
+         $result = $this->animation->setAni($id, $name, $sub, $vol, $buy, $link);
          if( $result ){
             $data = $this->animation->getRow($id);
             unset( $data['user_id'] );

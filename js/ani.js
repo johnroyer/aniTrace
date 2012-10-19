@@ -37,9 +37,15 @@ function renewList( response ){
             .insertAfter('#ani-list > tbody > tr:last');
          var result = $.tmpl( tmpl, response[aniId] )
             .appendTo('#ani-list > tbody > tr:last');
-         $('#ani-list > tbody > tr:last > td.col-act > .act-edit').attr('data-id', response[aniId]['sn'] );
+         var $currRow = $('#ani-list > tbody > tr:last');
+
+         $currRow.find('td.col-act > .act-edit').attr('data-id', response[aniId]['sn'] );
+
          if( response[aniId].finished == 1 )
-            $('#ani-list > tbody > tr:last').find('i.icon-ok').addClass('finished');
+            $currRow.find('i.icon-ok').addClass('finished');
+
+         if( response[aniId].link != null && response[aniId].link != '' )
+            $currRow.find('div.link').removeClass('hide');
       }
    }else{
       $('<tr><td colspan="5"></td></tr>').insertAfter('#ani-list > tbody > tr:last');
@@ -157,11 +163,13 @@ $('#dialog-edit').on('show', function(){
       var $this = $(this);
       var aniId = $this.find('> form').attr('data-id');
       var $targetRow = $('#ani-list > tbody > tr#' + aniId);
-      var name = $targetRow.find('> td.col-name').text();
+      var name = $targetRow.find('.name').text();
+      var link = $targetRow.find('.link > a').attr('href');
       var sub = $targetRow.find('> td.col-sub').text();
       var vol = $targetRow.find('> td.col-vol > div.vol').text();
       var buy = $targetRow.find('> td.col-buy > div.buy').text();
       $this.find('#ani-name').val( name );
+      $this.find('#ani-link').val( link );
       $this.find('#ani-sub').val( sub );
       $this.find('#ani-vol').val( vol );
       $this.find('#ani-buy').val( buy );
@@ -179,7 +187,14 @@ $('#submit-new-animation').click( function(){
             .insertAfter('#ani-list > tbody > tr:last');
             var result = $.tmpl( tmpl, response[0] )
             .appendTo('#ani-list > tbody > tr:last');
-            $('#ani-list > tbody > tr:last > td.col-act > .act-edit').attr('data-id', response[0].sn );
+            $row = $('#ani-list > tbody > tr:last');
+
+            $row.find('td.col-act > .act-edit').attr('data-id', response[0].sn );
+
+            if( response[0].link != null && response[0].link != '' ){
+               $row.find('.link > a').attr('href', response[0].link);
+               $row.find('.link').removeClass('hide');
+            }
             
             // Bind clicked event to icons
             $('td.col-vol > div > i.icon-plus').click( function(){ volClicked('up', $(this) ); } );
@@ -205,10 +220,18 @@ $('#submit-animation-change').click( function(){
       // Update view
       var id = response[0].sn;
       var $row = $('tr#' + id );
-      $row.find('.col-name').text( response[0].name );
+      $row.find('.name').text( response[0].name );
       $row.find('.col-sub').text( response[0].sub );
       $row.find('.vol').text( response[0].vol );
       $row.find('.buy').text( response[0].buy );
+      
+      if( response[0].link != null && response[0].link != '' ){
+         $row.find('.link > a').attr('href', response[0].link);
+         $row.find('.link').removeClass('hide');
+      }else{
+         $row.find('.link > a').attr('href', '');
+         $row.find('.link').addClass('hide');
+      }
 
       // Close dialog
       $('#dialog-edit').modal('hide');

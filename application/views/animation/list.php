@@ -20,7 +20,10 @@
 
       <tbody>
          <tr id="row-template">
-            <td class="col-name">${name}</td>
+            <td class="col-name">
+               <div class="name">${name}</div>
+               <div class="link hide"><a href="${link}" target="_blank"><i class="icon-link"></i></a></div>
+            </td>
             <td class="col-sub">${sub}</td>
             <td class="col-vol unselectable">
                <div class="vol">${vol}</div>
@@ -57,6 +60,13 @@
          </div>
 
          <div class="control-group">
+            <label class="control-label" for="sub">相關網址</label>
+            <div class="controls">
+               <input type="text" name="link" value="" placeholder="http://">
+            </div>
+         </div>
+
+         <div class="control-group">
             <label class="control-label" for="sub">字幕組</label>
             <div class="controls">
                <input type="text" name="sub" value="">
@@ -79,6 +89,13 @@
             <label class="control-label" for="name">動畫名稱</label>
             <div class="controls">
                <input type="text" id="ani-name" name="name" value="">
+            </div>
+         </div>
+
+         <div class="control-group">
+            <label class="control-label" for="sub">相關網址</label>
+            <div class="controls">
+               <input type="text" id="ani-link" name="link" value="" placeholder="http://">
             </div>
          </div>
 

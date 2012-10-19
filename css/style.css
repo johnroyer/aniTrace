@@ -46,6 +46,20 @@ body {
    display: none;
 }
 
+.name, .link {
+   float: left;
+   margin-right: 8px;
+}
+
+.link > a {
+   color: grey;
+}
+
+.link > a:hover {
+   text-decoration: none;
+   color: #08C;
+}
+
 .vol, .buy {
    font-size: 24px;;
    margin-right: 30px;
