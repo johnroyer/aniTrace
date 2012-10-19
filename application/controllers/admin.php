@@ -49,7 +49,7 @@ class Admin extends CI_Controller
 
       // Admin can not delete himself
       $user = $this->_getUserInfo();
-      if( $user['sn'] == $id ){
+      if( $user['id'] == $id ){
          $data['page_title'] = 'User Deletion';
          $data['loggedin'] = true;
          $data['user'] =  $this->_getUserInfo();
@@ -154,8 +154,8 @@ class Admin extends CI_Controller
             $isAdmin = true;
       }
       $user =  array(
-         'sn' => $info->id ,
-         'id' => $info->username,
+         'id' => $info->id ,
+         'username' => $info->username,
          'email' => $info->email,
          'groups' => $list,
          'isAdmin' => $isAdmin
