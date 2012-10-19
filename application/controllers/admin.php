@@ -19,33 +19,29 @@ class Admin extends CI_Controller
       }
    }
 
-   public function index()
+   public function index($type='')
    {
-      $data['page_title'] = 'User Admin';
-      $data['loggedin'] = true;
-
-      $users = $this->ion_auth->users()->result();
-
-      $data['user'] =  $this->user;
-      $data['users'] = $users;
-      $data['tab_general'] = 'active';
-      $data['tab_admin'] = '';
-      $this->load->view('admin/home', $data);
+      redirect('admin/userList/');
    }
 
-   public function superuser()
+   public function userList($type='')
    {
-      $data['page_title'] = 'User Admin';
-      $data['loggedin'] = true;
-
-      // List all admins (group id = 1)
-      $users = $this->ion_auth->users( array('1') )->result();
-
+      if( $type == '' ){ 
+         // General users
+         $users = $this->ion_auth->users()->result();
+         $data['tab_general'] = 'active';
+         $data['tab_admin'] = '';
+      }else{
+         // List all admins (group id = 1)
+         $users = $this->ion_auth->users( array('1') )->result();
+         $data['tab_general'] = '';
+         $data['tab_admin'] = 'active';
+      }
       $data['user'] =  $this->_getUserInfo();
       $data['users'] = $users;
-      $data['tab_general'] = '';
-      $data['tab_admin'] = 'active';
-      $this->load->view('admin/home', $data);
+      $data['page_title'] = 'User Admin';
+      $data['loggedin'] = true;
+      $this->load->view('admin/list', $data);
    }
 
    public function deleteUser($id=-1, $confirm='')
@@ -54,12 +50,12 @@ class Admin extends CI_Controller
 
       // Admin can not delete himself
       $user = $this->_getUserInfo();
-      if( $user['sn'] == $id ){
+      if( $user['id'] == $id ){
          $data['page_title'] = 'User Deletion';
          $data['loggedin'] = true;
          $data['user'] =  $this->_getUserInfo();
 
-         $data['error_title'] = 'Can NOT Delete Yourself';
+         $data['error_title'] = '無法刪除自己的帳號';
          $data['error_detail'] = ' ';
 
          $this->load->view('admin/delete_error', $data);
@@ -70,8 +66,7 @@ class Admin extends CI_Controller
             $info = $this->_getUserInfo($id);
             if( $info != NULL ){
                if($confirm == 'confirmed'){
-                  // Delete user data first
-                  $this->db->where('user_id', $id);
+                  // Delete User data from animation List
                   $this->db->delete('list', array('user_id'=>$id) );
 
                   // Delete User
@@ -84,8 +79,8 @@ class Admin extends CI_Controller
                   $data['user'] =  $this->_getUserInfo();
                   $target = $this->_getUserInfo( $id );
                   $data['target'] = array(
-                        'id' => $target['sn'],
-                        'username' => $target['id'],
+                        'id' => $target['id'],
+                        'username' => $target['username'],
                         'email' => $target['email']
                         );
                   $this->load->view('admin/delete_confirm', $data);

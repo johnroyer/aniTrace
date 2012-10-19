@@ -183,8 +183,8 @@ class User extends CI_Controller {
             $isAdmin = true;
       }
       $user =  array(
-         'sn' => $info->id ,
-         'id' => $info->username,
+         'id' => $info->id ,
+         'username' => $info->username,
          'email' => $info->email,
          'groups' => $list,
          'isAdmin' => $isAdmin

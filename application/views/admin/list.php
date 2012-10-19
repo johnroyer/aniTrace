@@ -8,8 +8,8 @@
 <div class="tabbable">
 
    <ul class="nav nav-tabs ">
-      <li class="<?php echo $tab_general; ?>"><a href="<?php echo site_url('admin/'); ?>">一般</a></li>
-      <li class="<?php echo $tab_admin; ?>"><a href="<?php echo site_url('admin/superuser'); ?>">管理員</a></li>
+      <li class="<?php echo $tab_general; ?>"><a href="<?php echo site_url('admin/userList'); ?>">一般</a></li>
+      <li class="<?php echo $tab_admin; ?>"><a href="<?php echo site_url('admin/userList/admin'); ?>">管理員</a></li>
       <li>
          <form class="form-search admin-tabs-search" action="#" method="post" accept-charset="utf-8">
          <i class="icon-search admin-tabs-search-icon"></i>
@@ -37,7 +37,6 @@
                <td class="row-email"></td>
                <td class="row-action">
                   <a href="<?php echo site_url('admin/deleteUser/'); ?>" class="action-link deleteUser"><i class="icon-trash action-icon"></i>刪除</a>
-                  <a href="<?php echo site_url('admin/edit/'); ?>" class="action-link editUser"><i class="icon-pencil action-icon"></i>編輯</a>
                </td>
             </tr>
 
@@ -47,8 +46,7 @@
                   <td><?php echo $u->username; ?></td>
                   <td><?php echo $u->email; ?></td>
                   <td>
-                     <a href="<?php echo site_url('admin/deleteUser/'.$u->id); ?>" class="action-link"><i class="icon-trash action-icon"></i>刪除</a>
-                     <a href="<?php echo site_url('admin/edit/'.$u->id); ?>" class="action-link"><i class="icon-pencil action-icon"></i>編輯</a>
+                     <a href="<?php echo site_url('admin/deleteUser/'.$u->id); ?>" class="action-link"><i class="icon-trash action-icon"></i> 刪除</a>
                   </td>
                </tr>
             <?php endforeach; ?>
