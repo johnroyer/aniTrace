@@ -16,4 +16,4 @@ aniTrace
 Demo Site
 ---------
 
-URL: http://zbla.us/aniTrace/
+URL: http://anitrace.phpfogapp.com
