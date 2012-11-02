@@ -11,11 +11,11 @@
             <?php endif; ?>
 
                <li class="">
-                  <a href="<?php echo site_url('ani/'); ?>">動畫清單</a>
+                  <a href="<?php echo site_url('ani/'); ?>"><i class="icon-list-ul"></i>動畫清單</a>
                </li>
 
                <li class="">
-                  <a href="<?php echo site_url('download/'); ?>">下載清單</a>
+                  <a href="<?php echo site_url('download/'); ?>"><i class="icon-download-alt"></i>下載清單</a>
                </li>
 
                <li class="dropdown">
