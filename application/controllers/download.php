@@ -1,6 +1,6 @@
 <?php
 
-class Ani extends CI_Controller
+class Download extends CI_Controller
 {
    
    private $user;
