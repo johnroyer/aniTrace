@@ -10,11 +10,11 @@
                <li><a href="<?php echo site_url('admin/'); ?>">使用者管理</a></li>
             <?php endif; ?>
 
-               <li class="">
+               <li id="anime-list">
                   <a href="<?php echo site_url('ani/'); ?>"><i class="icon-list-ul"></i>動畫清單</a>
                </li>
 
-               <li class="">
+               <li id="download-list">
                   <a href="<?php echo site_url('download/'); ?>"><i class="icon-download-alt"></i>下載清單</a>
                </li>
 

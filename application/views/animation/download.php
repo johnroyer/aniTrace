@@ -119,4 +119,8 @@
       </form>
    </div>
 
+   <script type="text/javascript" charset="utf-8">
+      var navbarHighlight = "download-list";
+   </script>
+
 <?php $this->load->view('footer');  ?>
