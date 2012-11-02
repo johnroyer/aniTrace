@@ -10,6 +10,14 @@
                <li><a href="<?php echo site_url('admin/'); ?>">使用者管理</a></li>
             <?php endif; ?>
 
+               <li class="">
+                  <a href="<?php echo site_url('ani/'); ?>">動畫清單</a>
+               </li>
+
+               <li class="">
+                  <a href="<?php echo site_url('download/'); ?>">下載清單</a>
+               </li>
+
                <li class="dropdown">
                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   <i class="icon-user icon-white"></i>
