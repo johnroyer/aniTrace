@@ -13,7 +13,6 @@
             <td>動畫</td>
             <td>字幕組</td>
             <td>集數</td>
-            <td>購入集數</td>
             <td></td>
          </tr>
       </thead>
@@ -28,13 +27,6 @@
             <td class="col-vol unselectable">
                <div class="vol">${vol}</div>
                <div class="vol-act">
-                  <i class="icon-plus"></i>
-                  <i class="icon-minus"></i>
-               </div>
-            </td>
-            <td class="col-buy unselectable">
-               <div class="buy">${buy}</div>
-               <div class="buy-act">
                   <i class="icon-plus"></i>
                   <i class="icon-minus"></i>
                </div>
