@@ -3,11 +3,6 @@
  * Javascript for animation list.
  *
  *****************************************************************************/
-
-$('document').ready(  function(){
-      getAniList();
-});
-
 function getAniList( ) {
    $.ajax( {
       url: site_url + '/ajax/',
@@ -241,3 +236,9 @@ $('#submit-animation-change').click( function(){
       console.log(data);
    } );
 });
+
+// Get anime list
+$('document').ready(  function(){
+      getAniList();
+});
+
