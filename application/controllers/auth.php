@@ -21,7 +21,7 @@ class Auth extends CI_Controller {
             'page_title' => 'Login',
             'loggedin' => false
          );
-         $this->load->view('user/home', $data);
+         $this->load->view('auth/home', $data);
       }
 	}
 
