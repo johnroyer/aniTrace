@@ -36,6 +36,13 @@ class Ajax extends CI_Controller
       }
    }
 
+   public function anime($id = 0)
+   {
+      if( $id != 0 ){
+         echo json_encode( $this->animation->getRow($id) );
+      }
+   }
+
    public function buy($act, $id=0)
    {
       if( intval( $id ) != 0 ){
