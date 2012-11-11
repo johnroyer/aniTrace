@@ -71,6 +71,17 @@ class Animation extends CI_Model
       return $this->db->get('list')->result_array();
    }
 
+   public function getWatchable()
+   {
+      $this->db->order_by('sn', 'asc');
+      $this->db->where('user_id', $this->uid);
+      $this->db->where('(
+               (`buy` = 0 and `vol` = 0)
+                  or (`buy` > `vol` or `finished` = 0)
+               ) and buy > 0 and buy > vol');
+      return $this->db->get('list')->result_array();
+   }
+
    public function setAni($aniId, $name='', $sub='', $vol=0, $buy=0, $link='')
    {
       $vol = intval( $vol );

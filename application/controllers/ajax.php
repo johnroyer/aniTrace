@@ -23,6 +23,11 @@ class Ajax extends CI_Controller
       echo json_encode( $this->animation->getList() );
    }
 
+   public function watchableList()
+   {
+      echo json_encode( $this->animation->getWatchable() );
+   }
+
    public function vol($act, $id=0)
    {
       if( intval( $id ) != 0 ){
