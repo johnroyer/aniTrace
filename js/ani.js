@@ -24,6 +24,26 @@ function getAniList( ) {
    } );
 }
 
+function getWatchableList( ) {
+   $.ajax( {
+      url: site_url + '/ajax/watchableList/',
+      dataType: 'json',
+      error: function(){ console.log('Get animation list failed') },
+      success: function( response ){
+         renewList( response );
+
+         // Bind clicked event to icons
+         $('td.col-vol > div > i.icon-plus').click( function(){ volClicked('up', $(this) ); } );
+         $('td.col-vol > div > i.icon-minus').click( function(){ volClicked('down', $(this) ); } );
+         $('td.col-buy > div > i.icon-plus').click( function(){ buyClicked('up', $(this) ); } );
+         $('td.col-buy > div > i.icon-minus').click( function(){ buyClicked('down', $(this) ); } );
+
+         // Bind event for finish button
+         $('i.icon-ok').click( function(){ markFinished( $(this) ); });
+      }
+   } );
+}
+
 function renewList( response ){
    clearTable('#ani-list');
    if( !('error' in response) ){
@@ -247,6 +267,10 @@ $('#submit-animation-change').click( function(){
 
 // Get anime list
 $('document').ready(  function(){
-      getAniList();
+      if( navbarHighlight == 'download-list' ){
+         getAniList();
+      }else{
+         getWatchableList();
+      }
 });
 
